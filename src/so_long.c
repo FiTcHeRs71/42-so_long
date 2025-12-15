@@ -16,11 +16,5 @@ int	main(int argc, char **argv)
 	load_textures(&mlx);
 	set_up_map(&mlx);
 	mlx_loop(mlx.mlx_connect);
-
-	//close_window(&mlx);
 	return (0);
 }
-
-// free file dans init data
-// close file dans init data
-//check bord que des 1 ?

@@ -14,8 +14,7 @@ void	check_map(t_mlx *mlx,char **args)
 		size = ft_strlen(args[i]);
 		if (mlx->len != size)
 		{
-			//ft _error
-			exit(EXIT_FAILURE);
+			ft_error("The map must be rectangular.\n", mlx);
 		}
 		i++;
 	}
@@ -31,17 +30,16 @@ void	check_arg(char	*line, t_mlx *mlx)
 	while(line[i])
 	{		if (!ft_isascii(line[i]))
 		{
-			//ft _error
-			exit(EXIT_FAILURE);
+			ft_error("only ascii parameters.\n", mlx);
 		}
 		if (!ft_strchr("10EPC", line[i]))
 		{
-			//ft _error
-			exit(EXIT_FAILURE);
+			ft_error("Missing parameters.\n", mlx);
 		}
 		ft_count_and_check_args(line[i], mlx);
 		i++;
 	}
+	free(line);
 }
 void	ft_count_and_check_args(char c, t_mlx *mlx) // struct 
 {
@@ -63,18 +61,15 @@ void	check_flag(t_mlx *mlx)
 {
 	if (mlx->flag_c == 0)
 	{
-		// need manger
-		exit (EXIT_FAILURE);
+		ft_error("Need at least one food item.\n", mlx);
 	}
 	if (mlx->flag_e != 1)
 	{
-		//trop d'exit
-		exit (EXIT_FAILURE);
+		ft_error("Need only one exit.\n", mlx);
 	}
 	if (mlx->flag_p != 1)
 	{
-		// trop de player
-		exit(EXIT_FAILURE);
+		ft_error("Need only one player.\n", mlx);
 	}
 }
 

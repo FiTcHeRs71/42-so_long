@@ -13,7 +13,6 @@
 /* window.c */
 void	handle_window(t_mlx *mlx);
 int		handle_keyboard_input(int keycode, t_mlx *mlx);
-int		close_window(t_mlx *mlx);
 void	resize_window(t_mlx *mlx, int new_width, int new_height);
 void	color_screen(t_mlx *mlx, int color);
 void	my_pixel_put(t_img *img, int x, int y, int color);
@@ -22,6 +21,9 @@ void	my_pixel_put(t_img *img, int x, int y, int color);
 void	init_data(t_mlx *mlx, char **argv);
 int		count_line(char **args);
 char	**fill_args(int fd);
+void	check_map_border_2(t_mlx *mlx);
+void	check_map_border(t_mlx *mlx);
+
 
 /* set_up_map.c */
 void	set_up_map(t_mlx *mlx);
@@ -38,10 +40,16 @@ void	ft_count_and_check_args(char c, t_mlx *mlx);
 void	check_flag(t_mlx *mlx);
 
 /* path_validdation.c */
-void		valide_path(t_mlx *mlx);
+void	valide_path(t_mlx *mlx);
 void	flood_fill(char **map_copy, int x, int y, t_flood *flood);
-char	**copy_map(char **original);
-int	find_player_position(char **map, int *x, int *y);
+char	**copy_map(char **original, t_mlx *mlx);
+int		find_player_position(char **map, int *x, int *y);
 
+/* exit_error_clear.c */
+void	check_clean_close(t_mlx *mlx);
+void	ft_error(char *msg, t_mlx *mlx);
+void	clean_struct(t_mlx *mlx);
+void	free_arays(char	**aray);
+int		close_window(t_mlx *mlx);
 
 #endif

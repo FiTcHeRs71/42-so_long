@@ -1,6 +1,14 @@
 #ifndef SO_LONG_STRUCT_H
 # define SO_LONG_STRUCT_H
 
+typedef enum	s_moov
+{
+	LEFT,
+	RIGHT,
+	UP,
+	DOWN,
+}	t_moov;
+
 typedef struct s_tex
 {
 	void	*tree;
@@ -28,6 +36,11 @@ typedef struct s_img
 	int			size_y;
 }				t_window;
 
+typedef struct s_game
+{
+	int			count;
+}t_game;
+
 typedef struct s_mlx
 {
 	void		*mlx_connect;
@@ -40,6 +53,7 @@ typedef struct s_mlx
 	t_window	window;
 	t_img		img;
 	t_tex		tex;
+	t_game		game
 }				t_mlx;
 
 typedef struct s_flood

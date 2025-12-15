@@ -6,14 +6,12 @@ void	handle_window(t_mlx *mlx)
 	mlx->mlx_connect = mlx_init();
 	if (!mlx->mlx_connect)
 	{
-		// ft_error ?
-		exit(EXIT_FAILURE);
+		ft_error("Unable to init connection\n", mlx);
 	}
 	mlx->mlx_window = mlx_new_window(mlx->mlx_connect, mlx->window.size_x, mlx->window.size_y, "Fitch > Leo sur MK");
 	if (!mlx->mlx_window)
 	{
-		// ft_error, free ?
-		close_window(mlx);
+		ft_error("Unable to create new window\n", mlx);
 	}
 	mlx_key_hook(mlx->mlx_window, handle_keyboard_input, mlx);
 	mlx_hook(mlx->mlx_window, 17, 0, close_window, mlx);
@@ -27,28 +25,21 @@ int	handle_keyboard_input(int keycode, t_mlx *mlx)
 	}
 	if (keycode == XK_w || keycode == XK_Up)
 	{
-		ft_printf("w");
+		player_mouv(mlx, UP);
 	}
 	if (keycode == XK_a || keycode == XK_Left)
 	{
-		ft_printf("a");
+		player_mouv(mlx, LEFT);
 	}
 	if (keycode == XK_s || keycode == XK_Down)
 	{
-		ft_printf("s");
+		player_mouv(mlx, DOWN);
 	}
 		if (keycode == XK_d || keycode == XK_Right)
 	{
-		ft_printf("d");
+		player_mouv(mlx, RIGHT);
 	}
-	ft_printf("%d", keycode);
+	ft_printf("You already have done %d mooves", mlx->game.count);
 	return (0);
 }
 
-int	close_window(t_mlx *mlx)
-{
-	mlx_destroy_window(mlx->mlx_connect, mlx->mlx_window);
-	mlx_destroy_display(mlx->mlx_connect);
-	free(mlx->mlx_connect); // a ranger autre part ?
-	exit(EXIT_SUCCESS);     // succes ?
-}
