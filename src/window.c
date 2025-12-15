@@ -39,7 +39,6 @@ int	handle_keyboard_input(int keycode, t_mlx *mlx)
 	{
 		player_move(mlx, RIGHT);
 	}
-	ft_printf("You already have done %d mooves\n", mlx->game.count);
 	return (0);
 }
 

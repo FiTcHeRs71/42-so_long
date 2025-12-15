@@ -38,6 +38,12 @@ typedef struct s_img
 
 typedef struct s_game
 {
+	int			x;
+	int			y;
+	int			way;
+	int			food;
+	int			player_x;
+	int			player_y;
 	int			count;
 }		t_game;
 

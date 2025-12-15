@@ -32,6 +32,7 @@ void	draw_with_img(t_mlx *mlx, char c, int x, int y);
 
 /* load_textures.c */
 void	load_textures(t_mlx *mlx);
+void	init_player(t_mlx *mlx);
 
 /* checking_map.c */
 void	check_map(t_mlx *mlx, char **args);
@@ -53,5 +54,8 @@ int		close_window(t_mlx *mlx);
 
 /* player_move.c */
 void	player_move(t_mlx *mlx, int move);
+bool	can_move(t_mlx *mlx, int x, int y);
+void	exec_move(t_mlx *mlx, int x, int y);
+void	handle_tile(t_mlx *mlx, int x, int y);
 
 #endif
