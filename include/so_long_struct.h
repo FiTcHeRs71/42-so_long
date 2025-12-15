@@ -1,13 +1,13 @@
 #ifndef SO_LONG_STRUCT_H
 # define SO_LONG_STRUCT_H
 
-typedef enum	s_moov
+typedef enum	s_move
 {
 	LEFT,
 	RIGHT,
 	UP,
 	DOWN,
-}	t_moov;
+}	t_move;
 
 typedef struct s_tex
 {
@@ -39,7 +39,7 @@ typedef struct s_img
 typedef struct s_game
 {
 	int			count;
-}t_game;
+}		t_game;
 
 typedef struct s_mlx
 {
@@ -53,7 +53,7 @@ typedef struct s_mlx
 	t_window	window;
 	t_img		img;
 	t_tex		tex;
-	t_game		game
+	t_game		game;
 }				t_mlx;
 
 typedef struct s_flood

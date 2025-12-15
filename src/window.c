@@ -25,21 +25,21 @@ int	handle_keyboard_input(int keycode, t_mlx *mlx)
 	}
 	if (keycode == XK_w || keycode == XK_Up)
 	{
-		player_mouv(mlx, UP);
+		player_move(mlx, UP);
 	}
 	if (keycode == XK_a || keycode == XK_Left)
 	{
-		player_mouv(mlx, LEFT);
+		player_move(mlx, LEFT);
 	}
 	if (keycode == XK_s || keycode == XK_Down)
 	{
-		player_mouv(mlx, DOWN);
+		player_move(mlx, DOWN);
 	}
 		if (keycode == XK_d || keycode == XK_Right)
 	{
-		player_mouv(mlx, RIGHT);
+		player_move(mlx, RIGHT);
 	}
-	ft_printf("You already have done %d mooves", mlx->game.count);
+	ft_printf("You already have done %d mooves\n", mlx->game.count);
 	return (0);
 }
 

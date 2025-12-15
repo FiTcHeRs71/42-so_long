@@ -46,10 +46,12 @@ char	**copy_map(char **original, t_mlx *mlx);
 int		find_player_position(char **map, int *x, int *y);
 
 /* exit_error_clear.c */
-void	check_clean_close(t_mlx *mlx);
 void	ft_error(char *msg, t_mlx *mlx);
 void	clean_struct(t_mlx *mlx);
 void	free_arays(char	**aray);
 int		close_window(t_mlx *mlx);
+
+/* player_move.c */
+void	player_move(t_mlx *mlx, int move);
 
 #endif
