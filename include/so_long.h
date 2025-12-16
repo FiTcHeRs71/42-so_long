@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 10/12/2025 08:48:51 by fducrot           #+#    #+#             */
-/*   Updated: 16/12/2025 09:42:54 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/16 14:12:34 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/16 14:12:34 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@
 /* window.c */
 void	handle_window(t_mlx *mlx);
 int		handle_keyboard_input(int keycode, t_mlx *mlx);
-void	resize_window(t_mlx *mlx, int new_width, int new_height);
-void	color_screen(t_mlx *mlx, int color);
-void	my_pixel_put(t_img *img, int x, int y, int color);
 
 /* init_data.c */
 void	init_data(t_mlx *mlx, char **argv);

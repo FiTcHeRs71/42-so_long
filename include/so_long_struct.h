@@ -5,13 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 09:43:55 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/16 09:44:02 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/16 14:02:27 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/16 14:03:47 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_STRUCT_H
 # define SO_LONG_STRUCT_H
+
+# include"so_long_struct_bonus.h"
 
 typedef enum s_move
 {
@@ -72,6 +74,8 @@ typedef struct s_mlx
 	t_img		img;
 	t_tex		tex;
 	t_game		game;
+	t_animation		anim;
+	t_player	player;
 }				t_mlx;
 
 typedef struct s_flood
