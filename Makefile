@@ -45,7 +45,7 @@ OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 # Fichiers bonus uniquement (4 fichiers)
 SRCS_BONUS_ONLY = $(addprefix $(SRC_BONUS_DIR)/, \
 	so_long_bonus.c \
-	cleaner_bonus.c \
+	window_bonus.c \
 	loader_anim.c \
 	loader_anim_utils.c)
 

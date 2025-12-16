@@ -8,7 +8,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 	{
 		ft_printf("Error.\n");
-		ft_printf("Usage ./so_long_bonus <valid map> ");
+		ft_printf("Usage: ./so_long_bonus <valid_map.ber>\n");
 		return (0);
 	}
 	ft_memset(&mlx, 0, sizeof(mlx));
@@ -18,7 +18,6 @@ int	main(int argc, char **argv)
 	load_player_animations(&mlx);
 	init_player(&mlx);
 	set_up_map(&mlx);
-	handle_hook(&mlx);
 	mlx_loop(mlx.mlx_connect);
 	return (0);
 }

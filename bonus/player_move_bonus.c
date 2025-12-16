@@ -28,9 +28,3 @@ int	game_loop(t_mlx *mlx)
 	update_player_animation(mlx);
 	return (0);
 }
-void	handle_hook(t_mlx *mlx)
-{
-	mlx_loop_hook(mlx->mlx_connect, game_loop, &mlx);
-	mlx_hook(mlx->mlx_window, 2, 1L << 0, handle_keyboard_bonus, &mlx);
-	mlx_hook(mlx->mlx_window, 17, 0, close_window, &mlx);
-}
