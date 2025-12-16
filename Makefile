@@ -34,31 +34,26 @@ SRCS = $(addprefix $(SRCDIR)/, \
 	set_up_map.c \
 	load_textures.c \
 	checking_map.c \
-	path_validation.c \
-	exit_error_clear.c \
-	player_move.c)
+	path_validation.c)
 
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
 # ================================ BONUS SRCS ================================ #
-
-# Fichiers bonus uniquement (4 fichiers)
 SRCS_BONUS_ONLY = $(addprefix $(SRC_BONUS_DIR)/, \
 	so_long_bonus.c \
 	window_bonus.c \
+	player_move_bonus.c \
 	loader_anim.c \
 	loader_anim_utils.c)
 
-# Fichiers mandatory réutilisés (8 fichiers)
 SRCS_SHARED = $(addprefix $(SRCDIR)/, \
-	window.c \
 	init_data.c \
 	set_up_map.c \
 	load_textures.c \
 	checking_map.c \
-	path_validation.c \
+	player_move.c \
 	exit_error_clear.c \
-	player_move.c)
+	path_validation.c)
 
 # Objets bonus
 OBJS_BONUS_ONLY = $(SRCS_BONUS_ONLY:$(SRC_BONUS_DIR)/%.c=$(OBJDIR_BONUS)/%.o)
