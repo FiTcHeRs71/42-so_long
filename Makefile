@@ -17,7 +17,11 @@ SRCS = $(addprefix $(SRCDIR)/, \
 	so_long.c window.c init_data.c set_up_map.c load_textures.c checking_map.c path_validation.c \
 	exit_error_clear.c player_move.c)
 
-SRCS_BONUS =
+SRCS_BONUS = $(addprefix $(SRC_BONUS_DIR)/, \
+so_long_bonus.c cleaner_bonus.c loader_anim.c loader_anim_utils.c) $(addprefix $(SRCDIR)/, \
+window.c init_data.c set_up_map.c load_textures.c checking_map.c path_validation.c \
+exit_error_clear.c player_move.c)
+
 
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 OBJS_BONUS = $(SRCS_BONUS:$(SRC_BONUS_DIR)/%.c=$(OBJDIR_BONUS)/%.o)
@@ -59,9 +63,9 @@ $(NAME): $(LIBFT) $(MINILIBX) $(OBJS)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MINILIBX_FLAGS) -o $(NAME)
 	@echo "$(GREEN)✓ So_long compiled successfully!$(RESET)"
 
-bonus: $(NAME_BONUS)
+# bonus: $(NAME_BONUS)
 
-$(NAME_BONUS): $(LIBFT) $(MINILIBX) $(OBJS_BONUS)
+bonus: $(LIBFT) $(MINILIBX) $(OBJS_BONUS)
 	@$(CC) $(CFLAGS) $(OBJS_BONUS) $(LIBFT) $(MINILIBX_FLAGS) -o $(NAME_BONUS)
 	@echo "$(GREEN)✓ So_long bonus compiled successfully!$(RESET)"
 

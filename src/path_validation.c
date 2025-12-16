@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 09:39:47 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/16 09:39:53 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/16 16:51:59 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/16 16:53:36 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	flood_fill(char **map_copy, int x, int y, t_flood *flood)
 	if (map_copy[y][x] == 'E')
 	{
 		flood->exit_found = 1;
+		return ;
 	}
 	map_copy[y][x] = 'V';
 	flood_fill(map_copy, x, y - 1, flood);

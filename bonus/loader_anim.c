@@ -10,7 +10,7 @@ void	*load_sprite(t_mlx *mlx, char *path)
 	img = mlx_xpm_file_to_image(mlx->mlx_connect, path, &w, &h);
 	if (!img)
 	{
-		ft_error("Error : Failed to load sprite\n", path);
+		ft_error("Error : Failed to load sprite\n", mlx);
 	}
 	return (img);
 }
@@ -35,24 +35,26 @@ char	*build_sprite_path(t_mlx *mlx, char *dir, int frame)
 		ft_error("Malloc failed.\n", mlx);
 	return (path);
 }
-void	init_animation(t_mlx *mlx)
+void	init_animation(t_animation *anim)
 {
-	mlx->anim.frames = ft_calloc(3, sizeof(void *));
-	if (!mlx->anim.frames)
+	anim->frames = ft_calloc(3, sizeof(void *));
+	if (!anim->frames)
 	{
-		ft_error("Malloc failed.\n", mlx);
+		return ;
 	}
-	mlx->anim.frame_count = 3;
-	mlx->anim.current_frame = 0;
-	mlx->anim.frame_delay = 6;
-	mlx->anim.tick_counter = 0;
+	anim->frame_count = 3;
+	anim->current_frame = 0;
+	anim->frame_delay = 6;
+	anim->tick_counter = 0;
 }
 void	load_dir_frames(t_mlx *mlx, int move, char *dir)
 {
 	char	*path;
 	int		i;
 
-	init_animation(&mlx);
+	init_animation(&mlx->player.anim[move]);
+	if (!mlx->player.anim[move].frames)
+		ft_error("Malloc failed.\n", mlx);
 	i = 0;
 	while (i < 3)
 	{
