@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 17:23:11 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/16 17:23:11 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/16 18:35:08 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/16 18:35:18 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../libft/include/libft.h"
 # include "../minilibx-linux/mlx.h"
 # include "so_long_struct.h"
+# include "so_long_bonus.h"
 # include <X11/keysym.h>
 
 /* window.c */

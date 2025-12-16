@@ -1,5 +1,5 @@
 
-#include "../include/so_long_bonus.h"
+#include "../include/so_long.h"
 
 void	free_player_animations(t_mlx *mlx)
 {
@@ -16,11 +16,13 @@ void	free_player_animations(t_mlx *mlx)
 			{
 				mlx_destroy_image(mlx->mlx_connect, mlx->player.anim[dir].frames[i]);
 			}
+			mlx->player.anim[dir].frames[i] = NULL;
 			i++;
 		}
 		if(mlx->player.anim[dir].frames)
 		{
 			free(mlx->player.anim[dir].frames);
+			mlx->player.anim[dir].frames = NULL;
 		}
 		dir++;
 	}

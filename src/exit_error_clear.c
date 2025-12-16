@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 09:40:07 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/16 09:40:07 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/16 18:22:14 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/16 18:22:19 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	ft_error(char *msg, t_mlx *mlx)
 
 int	close_window(t_mlx *mlx)
 {
+	if (mlx->player.anim[0].frames)
+		free_player_animations(mlx);
 	if (mlx && mlx->mlx_connect && mlx->tex.eat)
 		mlx_destroy_image(mlx->mlx_connect, mlx->tex.eat);
 	if (mlx && mlx->mlx_connect && mlx->tex.esc)

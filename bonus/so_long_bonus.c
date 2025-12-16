@@ -1,5 +1,5 @@
 
-#include "../include/so_long_bonus.h"
+#include "../include/so_long.h"
 
 int	main(int argc, char **argv)
 {
@@ -16,4 +16,8 @@ int	main(int argc, char **argv)
 	handle_window(&mlx);
 	load_textures(&mlx);
 	load_player_animations(&mlx);
+	init_player(&mlx);
+	set_up_map(&mlx);
+	mlx_loop(mlx.mlx_connect);
+	return (0);
 }

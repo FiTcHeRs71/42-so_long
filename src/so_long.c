@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 09:33:01 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/16 09:33:48 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/16 18:18:59 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/16 18:18:59 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int argc, char **argv)
 	handle_window(&mlx);
 	load_textures(&mlx);
 	init_player(&mlx);
-	set_up_map(&mlx);
 	mlx_loop(mlx.mlx_connect);
 	return (0);
 }

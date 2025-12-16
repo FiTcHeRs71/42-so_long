@@ -2,8 +2,6 @@
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
 
-# include "so_long.h"
-
 /* cleaner_bonus */
 void	free_player_animations(t_mlx *mlx);
 
@@ -18,5 +16,9 @@ void	load_player_animations(t_mlx *mlx);
 void	render_player(t_mlx *mlx);
 void	update_player_animation(t_mlx *mlx);
 void	next_frame_cycle(t_animation *anim, int *next_frame);
+
+/* player_move_bonus.c */
+int	handle_keyboard_bonus(int keycode, t_mlx *mlx);
+int	game_loop(t_mlx *mlx);
 
 #endif

@@ -1,5 +1,5 @@
 
-#include "../include/so_long_bonus.h"
+#include "../include/so_long.h"
 
 void	*load_sprite(t_mlx *mlx, char *path)
 {
@@ -22,7 +22,7 @@ char	*build_sprite_path(t_mlx *mlx, char *dir, int frame)
 	char	*frame_str;
 	char	*path;
 
-	tmp1 = ft_strjoin("texture_bonus/player/", dir);
+	tmp1 = ft_strjoin("bonus/texture_bonus/player/", dir);
 	tmp2 = ft_strjoin(tmp1, "_");
 	free(tmp1);
 	frame_str = ft_itoa(frame);

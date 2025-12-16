@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 09:37:08 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/16 09:37:08 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/16 18:36:11 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/16 18:36:24 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ void	handle_window(t_mlx *mlx)
 	}
 	mlx_key_hook(mlx->mlx_window, handle_keyboard_input, mlx);
 	mlx_hook(mlx->mlx_window, 17, 0, close_window, mlx);
+	mlx_loop_hook(mlx->mlx_connect, game_loop, &mlx);
+	mlx_hook(mlx->mlx_window, 2, 1L << 0, handle_keyboard_bonus, &mlx);
+	mlx_hook(mlx->mlx_window, 17, 0, close_window, &mlx);
 }
 
 int	handle_keyboard_input(int keycode, t_mlx *mlx)

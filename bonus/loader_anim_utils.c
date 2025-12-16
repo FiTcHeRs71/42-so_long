@@ -1,5 +1,5 @@
 
-#include "../include/so_long_bonus.h"
+#include "../include/so_long.h"
 
 void	next_frame_cycle(t_animation *anim, int *next_frame)
 {
@@ -22,12 +22,13 @@ void	update_player_animation(t_mlx *mlx)
 	{
 		anim->current_frame = 0;
 		anim->tick_counter = 0;
-		return; //ft_error ?
+		return;
 	}
 	anim->tick_counter++;
 	if (anim->tick_counter >= anim->frame_delay)
 	{
 		next_frame_cycle(anim, &next);
+		render_player(mlx);
 	}
 }
 
