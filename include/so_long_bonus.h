@@ -22,4 +22,7 @@ int		handle_keyboard_bonus(int keycode, t_mlx *mlx);
 int		game_loop(t_mlx *mlx);
 void	handle_hook(t_mlx *mlx);
 
+/* windoe_bonus.c */
+void	handle_window_bonus(t_mlx *mlx);
+
 #endif

@@ -13,7 +13,7 @@ int	main(int argc, char **argv)
 	}
 	ft_memset(&mlx, 0, sizeof(mlx));
 	init_data(&mlx, argv);
-	handle_window(&mlx);
+	handle_window_bonus(&mlx);
 	load_textures(&mlx);
 	load_player_animations(&mlx);
 	init_player(&mlx);
