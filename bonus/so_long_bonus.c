@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 	load_player_animations(&mlx);
 	init_player(&mlx);
 	set_up_map(&mlx);
+	handle_hook(&mlx);
 	mlx_loop(mlx.mlx_connect);
 	return (0);
 }

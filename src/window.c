@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 18:36:11 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/16 18:36:24 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/16 18:41:51 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/16 18:42:27 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,13 @@ void	handle_window(t_mlx *mlx)
 		ft_error("Unable to init connection\n", mlx);
 	}
 	mlx->mlx_window = mlx_new_window(mlx->mlx_connect, mlx->window.size_x,
-			mlx->window.size_y, "Fitch > Leo sur MK");
+			mlx->window.size_y, "So_long | mandatory");
 	if (!mlx->mlx_window)
 	{
 		ft_error("Unable to create new window\n", mlx);
 	}
 	mlx_key_hook(mlx->mlx_window, handle_keyboard_input, mlx);
 	mlx_hook(mlx->mlx_window, 17, 0, close_window, mlx);
-	mlx_loop_hook(mlx->mlx_connect, game_loop, &mlx);
-	mlx_hook(mlx->mlx_window, 2, 1L << 0, handle_keyboard_bonus, &mlx);
-	mlx_hook(mlx->mlx_window, 17, 0, close_window, &mlx);
 }
 
 int	handle_keyboard_input(int keycode, t_mlx *mlx)
