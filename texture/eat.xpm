@@ -65,7 +65,7 @@ static char * eat_xpm[] = {
 "w 	c #74C2A1",
 "x 	c #76C2A1",
 "y 	c #73C2A2",
-"z 	c #6DBF9F",
+"z 	c rgba(109, 191, 159, 1)",
 "A 	c #73C1A0",
 "B 	c #70C09F",
 "C 	c #50AE91",

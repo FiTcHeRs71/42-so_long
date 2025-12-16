@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/16 09:33:01 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/16 09:33:48 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/so_long.h"
 
@@ -8,8 +19,9 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_printf("%s", argv[0]); // message derreur
-		return(0); // a check
+		ft_printf("ERROR\n");
+		ft_printf("Usage ./so_long <valid map> ");
+		return (0);
 	}
 	ft_memset(&mlx, 0, sizeof(mlx));
 	ft_memset(&game, 0, sizeof(game));

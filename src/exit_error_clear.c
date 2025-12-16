@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit_error_clear.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/16 09:40:07 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/16 09:40:07 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	free_arays(char	**aray)
+void	free_arays(char **aray)
 {
 	size_t	i;
 
@@ -11,7 +22,7 @@ void	free_arays(char	**aray)
 		free(aray[i]);
 		i++;
 	}
-	free (aray);
+	free(aray);
 }
 
 void	clean_struct(t_mlx *mlx)
@@ -27,6 +38,7 @@ void	ft_error(char *msg, t_mlx *mlx)
 	ft_putstr_fd(msg, 2);
 	close_window(mlx);
 }
+
 int	close_window(t_mlx *mlx)
 {
 	if (mlx && mlx->mlx_connect && mlx->tex.eat)

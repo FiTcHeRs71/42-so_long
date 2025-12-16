@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   window.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/16 09:37:08 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/16 09:37:08 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/so_long.h"
 
@@ -8,7 +19,8 @@ void	handle_window(t_mlx *mlx)
 	{
 		ft_error("Unable to init connection\n", mlx);
 	}
-	mlx->mlx_window = mlx_new_window(mlx->mlx_connect, mlx->window.size_x, mlx->window.size_y, "Fitch > Leo sur MK");
+	mlx->mlx_window = mlx_new_window(mlx->mlx_connect, mlx->window.size_x,
+			mlx->window.size_y, "Fitch > Leo sur MK");
 	if (!mlx->mlx_window)
 	{
 		ft_error("Unable to create new window\n", mlx);
@@ -16,10 +28,11 @@ void	handle_window(t_mlx *mlx)
 	mlx_key_hook(mlx->mlx_window, handle_keyboard_input, mlx);
 	mlx_hook(mlx->mlx_window, 17, 0, close_window, mlx);
 }
+
 int	handle_keyboard_input(int keycode, t_mlx *mlx)
 {
 	if (keycode == XK_Escape)
-	{	
+	{
 		ft_printf("%d Esc pressed - closing window\n", keycode);
 		close_window(mlx);
 	}
@@ -35,10 +48,9 @@ int	handle_keyboard_input(int keycode, t_mlx *mlx)
 	{
 		player_move(mlx, DOWN);
 	}
-		if (keycode == XK_d || keycode == XK_Right)
+	if (keycode == XK_d || keycode == XK_Right)
 	{
 		player_move(mlx, RIGHT);
 	}
 	return (0);
 }
-

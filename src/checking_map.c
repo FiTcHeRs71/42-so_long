@@ -1,14 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checking_map.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/16 09:39:21 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/16 09:39:21 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	check_map(t_mlx *mlx,char **args)
+void	check_map(t_mlx *mlx, char **args)
 {
 	size_t	i;
 	int		size;
 
 	i = 0;
 	mlx->len = ft_strlen(args[0]);
-	while(args[i])
+	while (args[i])
 	{
 		check_arg(args[i], mlx);
 		size = ft_strlen(args[i]);
@@ -21,14 +32,16 @@ void	check_map(t_mlx *mlx,char **args)
 	check_flag(mlx);
 	valide_path(mlx);
 }
-void	check_arg(char	*line, t_mlx *mlx)
+
+void	check_arg(char *line, t_mlx *mlx)
 {
 	size_t	i;
 
 	i = 0;
 	line = ft_strtrim(line, "\n");
-	while(line[i])
-	{		if (!ft_isascii(line[i]))
+	while (line[i])
+	{
+		if (!ft_isascii(line[i]))
 		{
 			ft_error("only ascii parameters.\n", mlx);
 		}
@@ -41,13 +54,14 @@ void	check_arg(char	*line, t_mlx *mlx)
 	}
 	free(line);
 }
-void	ft_count_and_check_args(char c, t_mlx *mlx) // struct 
+
+void	ft_count_and_check_args(char c, t_mlx *mlx) // struct
 {
-	if(c == 'P')
+	if (c == 'P')
 	{
 		mlx->flag_p += 1;
 	}
-	if(c == 'E')
+	if (c == 'E')
 	{
 		mlx->flag_e += 1;
 	}
@@ -72,4 +86,3 @@ void	check_flag(t_mlx *mlx)
 		ft_error("Need only one player.\n", mlx);
 	}
 }
-

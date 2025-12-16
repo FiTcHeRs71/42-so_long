@@ -6,7 +6,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/so_long",
-            "args": ["map/map11.ber"],
+            "args": ["map/invalidmap/empty.ber"],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],

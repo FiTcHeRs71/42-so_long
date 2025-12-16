@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 10/12/2025 08:48:51 by fducrot           #+#    #+#             */
+/*   Updated: 16/12/2025 09:42:54 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -5,10 +17,6 @@
 # include "../minilibx-linux/mlx.h"
 # include "so_long_struct.h"
 # include <X11/keysym.h>
-
-# define WIDTH 900
-# define HEIGHT 700
-
 
 /* window.c */
 void	handle_window(t_mlx *mlx);
@@ -23,7 +31,6 @@ int		count_line(char **args);
 char	**fill_args(int fd);
 void	check_map_border_2(t_mlx *mlx);
 void	check_map_border(t_mlx *mlx);
-
 
 /* set_up_map.c */
 void	set_up_map(t_mlx *mlx);

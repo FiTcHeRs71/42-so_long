@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long_struct.h                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/16 09:43:55 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/16 09:44:02 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_STRUCT_H
 # define SO_LONG_STRUCT_H
 
-typedef enum	s_move
+typedef enum s_move
 {
 	LEFT,
 	RIGHT,
@@ -30,7 +42,7 @@ typedef struct s_img
 	int		len;
 }			t_img;
 
-	typedef struct s_window
+typedef struct s_window
 {
 	int			size_x;
 	int			size_y;

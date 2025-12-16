@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   path_validation.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/16 09:39:47 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/16 09:39:53 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void		valide_path(t_mlx *mlx)
+void	valide_path(t_mlx *mlx)
 {
 	char	**map_copy;
 	t_flood	flood;
@@ -30,7 +41,7 @@ void	flood_fill(char **map_copy, int x, int y, t_flood *flood)
 {
 	if (x < 0 || y < 0 || !map_copy[y] || !map_copy[y][x])
 	{
-		return; //ft_error ?
+		return ;
 	}
 	if (map_copy[y][x] == '1' || map_copy[y][x] == 'V')
 	{
@@ -45,10 +56,10 @@ void	flood_fill(char **map_copy, int x, int y, t_flood *flood)
 		flood->exit_found = 1;
 	}
 	map_copy[y][x] = 'V';
-	flood_fill(map_copy, x, y - 1, flood); // Haut
-	flood_fill(map_copy, x, y + 1, flood); // Bas
-	flood_fill(map_copy, x - 1, y, flood); // Gauche
-	flood_fill(map_copy, x + 1, y, flood); // Droite
+	flood_fill(map_copy, x, y - 1, flood);
+	flood_fill(map_copy, x, y + 1, flood);
+	flood_fill(map_copy, x - 1, y, flood);
+	flood_fill(map_copy, x + 1, y, flood);
 }
 
 char	**copy_map(char **original, t_mlx *mlx)
@@ -58,9 +69,7 @@ char	**copy_map(char **original, t_mlx *mlx)
 
 	i = 0;
 	while (original[i])
-	{
 		i++;
-	}
 	copy = ft_calloc(i + 1, sizeof(char *));
 	if (!copy)
 	{
@@ -87,21 +96,20 @@ int	find_player_position(char **map, int *x, int *y)
 	int	j;
 
 	i = 0;
-	while(map[i])
+	while (map[i])
 	{
 		j = 0;
-		while(map[i][j])
+		while (map[i][j])
 		{
 			if (map[i][j] == 'P')
 			{
 				*x = j;
 				*y = i;
-				return(1);
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
-	return(0);
+	return (0);
 }
-
