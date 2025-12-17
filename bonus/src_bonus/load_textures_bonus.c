@@ -12,7 +12,7 @@ void	load_textures(t_mlx *mlx)
 	if (!mlx->tex.tree)
 		ft_error("Unable to find tree.xpm.\n", mlx);
 	mlx->tex.player = mlx_xpm_file_to_image(mlx->mlx_connect,
-			"texture/player.xpm", &mlx->tex.width, &mlx->tex.height);
+			"bonus/texture_bonus/player/down_0.xpm", &mlx->tex.width, &mlx->tex.height);
 	if (!mlx->tex.player)
 		ft_error("Unable to find player.xpm.\n", mlx);
 	mlx->tex.esc = mlx_xpm_file_to_image(mlx->mlx_connect, "texture/esc.xpm",
