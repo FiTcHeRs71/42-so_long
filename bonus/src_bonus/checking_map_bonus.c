@@ -1,16 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   checking_map.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 09:09:18 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/17 09:09:26 by fducrot          ###   ########.ch       */
-/*                                                                            */
-/* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include_bonus/so_long_bonus.h"
 
 void	check_map(t_mlx *mlx, char **args)
 {

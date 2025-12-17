@@ -1,5 +1,5 @@
 
-#include "../include/so_long.h"
+#include "../include_bonus/so_long_bonus.h"
 
 void	next_frame_cycle(t_animation *anim, int *next_frame)
 {

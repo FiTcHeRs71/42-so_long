@@ -1,5 +1,5 @@
 
-#include "../include/so_long.h"
+#include "../include_bonus/so_long_bonus.h"
 
 void	*load_sprite(t_mlx *mlx, char *path)
 {
