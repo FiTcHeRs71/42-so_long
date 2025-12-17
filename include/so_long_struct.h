@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 08:42:53 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/17 08:42:53 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/17 11:02:01 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/17 11:02:08 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,6 @@ typedef enum s_move
 	UP,
 	DOWN,
 }				t_move;
-
-typedef struct s_animation
-{
-	void		**frames;
-	int			frame_count;
-	int			current_frame;
-	int			frame_delay;
-	int			tick_counter;
-}				t_animation;
-
-typedef struct s_player
-{
-	int			x;
-	int			y;
-	t_animation	anim[4];
-	t_move		direction;
-	int			is_moving;
-
-}				t_player;
 
 typedef struct s_tex
 {
@@ -91,7 +72,6 @@ typedef struct s_mlx
 	t_img		img;
 	t_tex		tex;
 	t_game		game;
-	t_player	player;
 }				t_mlx;
 
 typedef struct s_flood

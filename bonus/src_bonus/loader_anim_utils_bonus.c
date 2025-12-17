@@ -9,6 +9,11 @@ void	next_frame_cycle(t_animation *anim, int *next_frame)
 			anim->current_frame = 2;
 		else
 			anim->current_frame = 1;
+		*next_frame = -(*next_frame);
+	}
+	else
+	{
+		anim->current_frame = 0;
 	}
 	anim->tick_counter = 0;
 }
