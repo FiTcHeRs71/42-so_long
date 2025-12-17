@@ -17,7 +17,7 @@ void	handle_tile(t_mlx *mlx, int x, int y)
 		ft_printf("*====================================*\n");
 		ft_printf("*                                    *\n");
 		ft_printf("*             VICTORY                *\n");
-		ft_printf("*     You did this with %d moves.    *\n", mlx->game.count);
+		ft_printf("*     You did this with %d moves.    *\n", mlx->game.way);
 		ft_printf("*Wanna try other maps or less moves ?*\n");
 		ft_printf("*====================================*\n");
 		close_window(mlx);
@@ -26,7 +26,6 @@ void	handle_tile(t_mlx *mlx, int x, int y)
 
 void	exec_move(t_mlx *mlx, int x, int y)
 {
-	mlx->game.count++;
 	mlx->args[mlx->game.y][mlx->game.x] = '0';
 	handle_tile(mlx, x, y);
 	mlx->game.x = x;

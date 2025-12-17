@@ -58,7 +58,7 @@ void	next_frame_cycle(t_animation *anim, int *next_frame);
 void	valide_path(t_mlx *mlx);
 void	flood_fill(char **map_copy, int x, int y, t_flood *flood);
 char	**copy_map(char **original, t_mlx *mlx);
-int	find_player_position(char **map, int *x, int *y);
+int		find_player_position(char **map, int *x, int *y);
 
 /* menu_bonus.c */
 void	render_menu(t_mlx *mlx);

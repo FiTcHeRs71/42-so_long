@@ -25,7 +25,6 @@ void	init_data(t_mlx *mlx, char **argv)
 	mlx->window.size_y = count_line(mlx->args) * 64;
 	check_map_border(mlx);
 	check_map_border_2(mlx);
-	mlx->game.way = 0;
 	mlx->game.state = STATE_MENU;
 }
 
