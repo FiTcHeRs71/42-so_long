@@ -76,11 +76,9 @@ typedef struct s_window
 typedef struct s_game
 {
 	t_state		state;
-	int			way;
+	int			moves;
 	int			food;
 	int			total_food;
-	int			player_x;
-	int			player_y;
 	t_enemy		*enemies;
 	int			enemy_count;
 }	t_game;

@@ -17,21 +17,22 @@ void	handle_tile(t_mlx *mlx, int x, int y)
 		ft_printf("*====================================*\n");
 		ft_printf("*                                    *\n");
 		ft_printf("*             VICTORY                *\n");
-		ft_printf("*     You did this with %d moves.    *\n", mlx->game.way);
+		ft_printf("*     You did this with %d moves.    *\n", mlx->game.moves);
 		ft_printf("*Wanna try other maps or less moves ?*\n");
 		ft_printf("*====================================*\n");
 		close_window(mlx);
 	}
 }
 
-void	exec_move(t_mlx *mlx, int x, int y)
+void	exec_move(t_mlx *mlx, int new_x, int new_y)
 {
-	mlx->args[mlx->game.y][mlx->game.x] = '0';
-	handle_tile(mlx, x, y);
-	mlx->game.x = x;
-	mlx->game.y = y;
-	mlx->args[y][x] = 'P';
-	ft_printf("Moves : %d\n", mlx->game.count);
+	mlx->args[mlx->player.y][mlx->player.x] = '0';
+	handle_tile(mlx, new_x, new_y);
+	mlx->player.x = new_x;
+	mlx->player.y = new_y;
+	mlx->args[new_y][new_x] = 'P';
+	mlx->game.moves++;
+	ft_printf("Moves : %d\n", mlx->game.moves);
 	set_up_map(mlx);
 }
 
@@ -59,26 +60,29 @@ bool	can_move(t_mlx *mlx, int x, int y)
 
 void	player_move(t_mlx *mlx, int move)
 {
+	int	new_x;
+	int	new_y;
+
+	new_x = mlx->player.x;
+	new_y = mlx->player.y;
 	if (move == UP)
-		mlx->player.y--;
+		new_y--;
 	else if (move == DOWN)
-		mlx->player.y++;
+		new_y++;
 	else if (move == LEFT)
-		mlx->player.x--;
+		new_x--;
 	else if (move == RIGHT)
-		mlx->player.x++;
-	mlx->game.x = mlx->player.x;
-	mlx->game.y = mlx->player.y;
-	mlx->game.way++;
-	ft_printf("Steps: %d\n", mlx->game.way);
-	if (can_move(mlx, mlx->player.x, mlx->player.y))
-		exec_move(mlx, mlx->player.x, mlx->player.y);
+		new_x++;
+	mlx->player.direction = move;
+	if (can_move(mlx, new_x, new_y))
+	{
+		mlx->player.is_moving = 1;
+		exec_move(mlx, new_x, new_y);
+	}
 }
 
 int	handle_keyboard_bonus(int keycode, t_mlx *mlx)
 {
-	t_move	direction;
-
 	if(mlx->game.state == STATE_MENU)
 	{
 		handle_menu_keys(keycode, mlx);
@@ -88,20 +92,13 @@ int	handle_keyboard_bonus(int keycode, t_mlx *mlx)
 		if (keycode == XK_Escape)
 			close_window(mlx);
 		if (keycode == XK_w || keycode == XK_Up)
-			direction = UP;
+			player_move(mlx, UP);
 		else if (keycode == XK_a || keycode == XK_Left)
-			direction = LEFT;
+			player_move(mlx, LEFT);
 		else if (keycode == XK_s || keycode == XK_Down)
-			direction = DOWN;
+			player_move(mlx, DOWN);
 		else if (keycode == XK_d || keycode == XK_Right)
-			direction = RIGHT;
-		else
-			return (0);
-		mlx->player.direction = direction;
-		mlx->player.is_moving = 1;
-		player_move(mlx, direction);
-		mlx->player.x = mlx->game.x;
-		mlx->player.y = mlx->game.y;
+			player_move(mlx, RIGHT);
 	}
 	return (0);
 }
@@ -114,7 +111,6 @@ int	game_loop(t_mlx *mlx)
 	else if (mlx->game.state == STATE_GAME)
 	{
 		update_player_animation(mlx);
-		render_player(mlx);
 	}
 	return (0);
 }

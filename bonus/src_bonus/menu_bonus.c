@@ -8,8 +8,8 @@ void	render_menu(t_mlx *mlx)
 	int	color;
 
 	color = 0xFFFFFF;
-	center_x = (mlx->game.x * 64) / 2 -100;
-	center_y = (mlx->game.x * 64) / 2;
+	center_x = mlx->window.size_x  / 2 -100;
+	center_y = mlx->window.size_y / 2;
 	mlx_clear_window(mlx->mlx_connect, mlx->mlx_window);
 	mlx_string_put(mlx->mlx_connect, mlx->mlx_window, center_x, center_y -50, 0xFF0000, "== POKEMON SO_LONG ==");
 	mlx_string_put(mlx->mlx_connect, mlx->mlx_window, 

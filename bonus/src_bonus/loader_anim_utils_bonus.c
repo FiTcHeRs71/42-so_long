@@ -20,39 +20,36 @@ void	next_frame_cycle(t_animation *anim, int *next_frame)
 void	update_player_animation(t_mlx *mlx)
 {
 	static int	next;
-	t_move		dir;
 	t_animation	*anim;
 
 	if (next == 0)
 	{
 		next = 1;
 	}
-	dir = mlx->player.direction;
-	anim = &mlx->player.anim[dir];
+	anim = &mlx->player.anim[mlx->player.direction];
 	if (!mlx->player.is_moving)
 	{
 		anim->current_frame = 0;
 		anim->tick_counter = 0;
+		render_player(mlx);
 		return ;
 	}
 	anim->tick_counter++;
 	if (anim->tick_counter >= anim->frame_delay)
 	{
 		next_frame_cycle(anim, &next);
-		render_player(mlx);
 	}
+	render_player(mlx);
 }
 
 void	render_player(t_mlx *mlx)
 {
-	t_move		dir;
 	t_animation	*anim;
 	void		*sprite;
 	int			x;
 	int			y;
 
-	dir = mlx->player.direction;
-	anim = &mlx->player.anim[dir];
+	anim = &mlx->player.anim[mlx->player.direction];
 	sprite = anim->frames[anim->current_frame];
 	x = mlx->player.x * 64;
 	y = mlx->player.y * 64;

@@ -42,15 +42,12 @@ void	init_player(t_mlx *mlx)
 		{
 			if (mlx->args[y][x] == 'P')
 			{
-				mlx->game.x = x;
-				mlx->game.y = y;
+				mlx->player.x = x;
+				mlx->player.y = y;
 				break ;
 			}
 			x++;
 		}
 		y++;
 	}
-	mlx->game.player_x = mlx->game.x * 64;
-	mlx->game.player_y = mlx->game.y * 64;
-	mlx->game.way = 0;
 }
