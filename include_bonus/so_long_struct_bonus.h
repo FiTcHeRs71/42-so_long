@@ -52,6 +52,7 @@ typedef struct s_tex
 	void		*grass;
 	void		*player;
 	void		*esc;
+	void		*menu;
 	void		*eat;
 	int			width;
 	int			height;

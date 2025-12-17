@@ -3,10 +3,6 @@
 
 void	load_textures(t_mlx *mlx)
 {
-	mlx->tex.grass = mlx_xpm_file_to_image(mlx->mlx_connect,
-			"texture/grass.xpm", &mlx->tex.width, &mlx->tex.height);
-	if (!mlx->tex.grass)
-		ft_error("Unable to find grass.xpm.\n", mlx);
 	mlx->tex.tree = mlx_xpm_file_to_image(mlx->mlx_connect, "texture/tree.xpm",
 			&mlx->tex.width, &mlx->tex.height);
 	if (!mlx->tex.tree)
@@ -23,6 +19,10 @@ void	load_textures(t_mlx *mlx)
 			&mlx->tex.width, &mlx->tex.height);
 	if (!mlx->tex.eat)
 		ft_error("Unable to find eat.xpm.\n", mlx);
+	mlx->tex.grass = mlx_xpm_file_to_image(mlx->mlx_connect,
+			"texture/grass.xpm", &mlx->tex.width, &mlx->tex.height);
+	if (!mlx->tex.grass)
+		ft_error("Unable to find grass.xpm.\n", mlx);
 }
 
 void	init_player(t_mlx *mlx)
