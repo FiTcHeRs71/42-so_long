@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 09:39:21 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/16 09:39:21 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/17 08:40:20 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/17 08:40:20 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	check_arg(char *line, t_mlx *mlx)
 	size_t	i;
 
 	i = 0;
-	line = ft_strtrim(line, "\n");
 	while (line[i])
 	{
 		if (!ft_isascii(line[i]))

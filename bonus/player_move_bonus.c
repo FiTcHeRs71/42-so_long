@@ -19,7 +19,6 @@ int	handle_keyboard_bonus(int keycode, t_mlx *mlx)
 		return (0);
 	mlx->player.direction = direction;
 	mlx->player.is_moving = 1;
-	
 	player_move(mlx, direction);
 	return (0);
 }

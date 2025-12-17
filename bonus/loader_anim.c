@@ -3,10 +3,10 @@
 
 void	*load_sprite(t_mlx *mlx, char *path)
 {
-	int	w;
-	int	h;
+	int		w;
+	int		h;
 	void	*img;
-	
+
 	img = mlx_xpm_file_to_image(mlx->mlx_connect, path, &w, &h);
 	if (!img)
 	{

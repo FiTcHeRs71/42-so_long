@@ -15,8 +15,8 @@
 
 # include "../libft/include/libft.h"
 # include "../minilibx-linux/mlx.h"
-# include "so_long_struct.h"
 # include "so_long_bonus.h"
+# include "so_long_struct.h"
 # include <X11/keysym.h>
 
 /* window.c */
@@ -41,7 +41,7 @@ void	init_player(t_mlx *mlx);
 
 /* checking_map.c */
 void	check_map(t_mlx *mlx, char **args);
-void	check_arg(char	*line, t_mlx *mlx);
+void	check_arg(char *line, t_mlx *mlx);
 void	ft_count_and_check_args(char c, t_mlx *mlx);
 void	check_flag(t_mlx *mlx);
 
@@ -54,7 +54,7 @@ int		find_player_position(char **map, int *x, int *y);
 /* exit_error_clear.c */
 void	ft_error(char *msg, t_mlx *mlx);
 void	clean_struct(t_mlx *mlx);
-void	free_arays(char	**aray);
+void	free_arays(char **aray);
 int		close_window(t_mlx *mlx);
 
 /* player_move.c */

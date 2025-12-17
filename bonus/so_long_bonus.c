@@ -3,7 +3,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_mlx		mlx;
+	t_mlx mlx;
 
 	if (argc != 2)
 	{

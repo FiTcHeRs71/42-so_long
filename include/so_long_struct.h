@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 17:57:41 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/16 17:57:41 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/17 08:42:53 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/17 08:42:53 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,47 +19,47 @@ typedef enum s_move
 	RIGHT,
 	UP,
 	DOWN,
-}	t_move;
+}				t_move;
 
 typedef struct s_animation
 {
-	void	**frames;
-	int		frame_count;
-	int		current_frame;
-	int		frame_delay;
-	int		tick_counter;
-}	t_animation;
+	void		**frames;
+	int			frame_count;
+	int			current_frame;
+	int			frame_delay;
+	int			tick_counter;
+}				t_animation;
 
 typedef struct s_player
 {
-	int	x;
-	int	y;
-	t_animation		anim[4];
+	int			x;
+	int			y;
+	t_animation	anim[4];
 	t_move		direction;
-	int	is_moving;
+	int			is_moving;
 
-}	t_player;
+}				t_player;
 
 typedef struct s_tex
 {
-	void	*tree;
-	void	*grass;
-	void	*player;
-	void	*esc;
-	void	*eat;
-	int		width;
-	int		height;
+	void		*tree;
+	void		*grass;
+	void		*player;
+	void		*esc;
+	void		*eat;
+	int			width;
+	int			height;
 
-}	t_tex;
+}				t_tex;
 
 typedef struct s_img
 {
-	void	*img_ptr;
-	char	*pxl_ptr;
-	int		bits;
-	int		endlian;
-	int		len;
-}			t_img;
+	void		*img_ptr;
+	char		*pxl_ptr;
+	int			bits;
+	int			endian;
+	int			len;
+}				t_img;
 
 typedef struct s_window
 {
@@ -76,7 +76,7 @@ typedef struct s_game
 	int			player_x;
 	int			player_y;
 	int			count;
-}		t_game;
+}				t_game;
 
 typedef struct s_mlx
 {

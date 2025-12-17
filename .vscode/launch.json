@@ -2,11 +2,11 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug so_long",
+            "name": "Debug so_long_bonus",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/so_long",
-            "args": ["map/invalidmap/empty.ber"],
+            "program": "${workspaceFolder}/so_long_bonus",
+            "args": ["map/validmap/42.ber"],
             "stopAtEntry": true,
             "cwd": "${workspaceFolder}",
             "environment": [],
