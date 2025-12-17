@@ -42,7 +42,7 @@ void	check_arg(char *line, t_mlx *mlx)
 	}
 }
 
-void	ft_count_and_check_args(char c, t_mlx *mlx) // struct
+void	ft_count_and_check_args(char c, t_mlx *mlx)
 {
 	if (c == 'P')
 	{

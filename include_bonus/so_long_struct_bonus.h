@@ -2,13 +2,31 @@
 #ifndef SO_LONG_BONUS_STRUCT_H
 # define SO_LONG_BONUS_STRUCT_H
 
+typedef enum e_state
+{
+	STATE_MENU,
+	STATE_GAME,
+	STATE_GAME_OVER,
+	STATE_WIN
+}	t_state;
+
 typedef enum s_move
 {
 	LEFT,
 	RIGHT,
 	UP,
 	DOWN,
-}				t_move;
+}	t_move;
+
+typedef struct s_enemy
+{
+	int			x;
+	int			y;
+	int			start_x;
+	int			start_y;
+	int			dir;
+	int			is_alive;
+}	t_enemy;
 
 typedef struct s_animation {
 	void		**frames;
@@ -23,6 +41,8 @@ typedef struct s_player {
 	int			y;
 	t_move		direction;
 	int			is_moving;
+	int			hp;
+	int			is_attacking;
 	t_animation	anim[4];
 } t_player;
 
@@ -55,6 +75,7 @@ typedef struct s_window
 
 typedef struct s_game
 {
+	t_state		state;
 	int			x;
 	int			y;
 	int			way;
@@ -62,7 +83,9 @@ typedef struct s_game
 	int			player_x;
 	int			player_y;
 	int			count;
-}				t_game;
+	t_enemy		*enemies;
+	int			enemy_count;
+}	t_game;
 
 typedef struct s_mlx
 {

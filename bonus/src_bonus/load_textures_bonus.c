@@ -30,6 +30,10 @@ void	init_player(t_mlx *mlx)
 	int	y;
 	int	x;
 
+	mlx->player.direction = DOWN;
+	mlx->player.is_moving = 0;
+	mlx->player.is_attacking = 0;
+	mlx->player.hp = 3;
 	y = 0;
 	while (mlx->args[y])
 	{
