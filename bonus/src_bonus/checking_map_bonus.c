@@ -33,7 +33,7 @@ void	check_arg(char *line, t_mlx *mlx)
 		{
 			ft_error("only ascii parameters.\n", mlx);
 		}
-		if (!ft_strchr("10EPC", line[i]))
+		if (!ft_strchr("10EPCM", line[i]))
 		{
 			ft_error("Missing parameters.\n", mlx);
 		}

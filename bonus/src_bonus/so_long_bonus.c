@@ -14,6 +14,7 @@ int	main(int argc, char **argv)
 	init_data(&mlx, argv);
 	handle_window_bonus(&mlx);
 	load_textures(&mlx);
+	load_enemy(&mlx);
 	load_player_animations(&mlx);
 	init_player(&mlx);
 	set_up_map(&mlx);

@@ -25,6 +25,26 @@ void	load_textures(t_mlx *mlx)
 		ft_error("Unable to find grass.xpm.\n", mlx);
 }
 
+void	load_enemy(t_mlx *mlx)
+{
+	mlx->tex.enemy_down = mlx_xpm_file_to_image(mlx->mlx_connect, "bonus/texture_bonus/monster/monster_D.xpm",
+			&mlx->tex.width, &mlx->tex.height);
+	if (!mlx->tex.enemy_down)
+		ft_error("Unable to find monster_D.xpm\n", mlx);
+	mlx->tex.enemy_up = mlx_xpm_file_to_image(mlx->mlx_connect, "bonus/texture_bonus/monster/monster_U.xpm",
+			&mlx->tex.width, &mlx->tex.height);
+	if (!mlx->tex.enemy_up)
+		ft_error("Unable to find monster_U.xpm\n", mlx);
+	mlx->tex.enemy_left = mlx_xpm_file_to_image(mlx->mlx_connect, "bonus/texture_bonus/monster/monster_L.xpm",
+			&mlx->tex.width, &mlx->tex.height);
+	if (!mlx->tex.enemy_left)
+		ft_error("Unable to find monster_L.xpm\n", mlx);
+	mlx->tex.enemy_right = mlx_xpm_file_to_image(mlx->mlx_connect, "bonus/texture_bonus/monster/monster_R.xpm",
+			&mlx->tex.width, &mlx->tex.height);
+	if (!mlx->tex.enemy_right)
+		ft_error("Unable to find monster_R.xpm\n", mlx);
+}
+
 void	init_player(t_mlx *mlx)
 {
 	int	y;

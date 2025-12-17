@@ -26,6 +26,7 @@ typedef struct s_enemy
 	int			start_y;
 	int			dir;
 	int			is_alive;
+	int			patrol_range;
 }	t_enemy;
 
 typedef struct s_animation {
@@ -54,6 +55,10 @@ typedef struct s_tex
 	void		*esc;
 	void		*menu;
 	void		*eat;
+	void		*enemy_up;
+	void		*enemy_down;
+	void		*enemy_left;
+	void		*enemy_right;
 	int			width;
 	int			height;
 

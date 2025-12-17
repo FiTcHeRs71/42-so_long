@@ -22,6 +22,7 @@ void	check_map_border_2(t_mlx *mlx);
 
 /* load_textures_bonus.c */
 void	load_textures(t_mlx *mlx);
+void	load_enemy(t_mlx *mlx);
 void	init_player(t_mlx *mlx);
 
 /* set_up_map_bonus.c */
