@@ -34,12 +34,14 @@ BONUS_SRCS  = $(addprefix $(BONUSDIR)/, \
 				so_long_bonus.c \
 				checking_map_bonus.c \
 				init_data_bonus.c \
+				init_data_utils_bonus.c \
 				load_textures_bonus.c \
 				set_up_map_bonus.c \
 				exit_error_clear_bonus.c \
 				path_validation_bonus.c \
 				player_move_bonus.c \
 				window_bonus.c \
+				menu_bonus.c \
 				loader_anim_bonus.c \
 				loader_anim_utils_bonus.c)
 

@@ -1,6 +1,23 @@
 
 #include "../include_bonus/so_long_bonus.h"
 
+void	player_move(t_mlx *mlx, int move)
+{
+	if (move == UP)
+		mlx->player.y--;
+	else if (move == DOWN)
+		mlx->player.y++;
+	else if (move == LEFT)
+		mlx->player.x--;
+	else if (move == RIGHT)
+		mlx->player.x++;
+	mlx->game.x = mlx->player.x;
+	mlx->game.y = mlx->player.y;
+	mlx->game.way++;
+	ft_printf("Steps: %d\n", mlx->game.way);
+	set_up_map(mlx);
+}
+
 int	handle_keyboard_bonus(int keycode, t_mlx *mlx)
 {
 	t_move	direction;

@@ -32,6 +32,7 @@ void	render_line(char *line, t_mlx *mlx, int y);
 /* player_move_bonus.c */
 int		handle_keyboard_bonus(int keycode, t_mlx *mlx);
 int		game_loop(t_mlx *mlx);
+void	player_move(t_mlx *mlx, int move);
 
 /* window_bonus.c */
 void	handle_window_bonus(t_mlx *mlx);
@@ -61,7 +62,6 @@ int	find_player_position(char **map, int *x, int *y);
 
 /* menu_bonus.c */
 void	render_menu(t_mlx *mlx);
-int	handle_menu_keys(int keycode, t_mlx *mlx);
-
+int		handle_menu_keys(int keycode, t_mlx *mlx);
 
 #endif
