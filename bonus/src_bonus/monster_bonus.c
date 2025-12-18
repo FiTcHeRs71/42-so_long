@@ -44,7 +44,7 @@ void	move_enemy(t_mlx *mlx, t_enemy *enemy) // a check avec attk
 			&& mlx->args[enemy->y][enemy->x - 1] == '0')
 			new_x--;
 		else
-			enemy->dir = UP;
+			enemy->dir = RIGHT;
 	}
 	else if (enemy->dir == UP)
 	{
@@ -60,7 +60,7 @@ void	move_enemy(t_mlx *mlx, t_enemy *enemy) // a check avec attk
 			&& mlx->args[enemy->y + 1][enemy->x] == '0')
 			new_y++;
 		else
-			enemy->dir = RIGHT;
+			enemy->dir = UP;
 	}
 	if (new_x != enemy->x || new_y != enemy->y)
 	{
@@ -96,7 +96,7 @@ void	init_enemy(t_mlx *mlx)
 				mlx->game.enemies[index].start_x = x;
 				mlx->game.enemies[index].start_y = y;
 				mlx->game.enemies[index].dir = RIGHT;
-				mlx->game.enemies[index].patrol_range = 3;
+				mlx->game.enemies[index].patrol_range = 2;
 				mlx->game.enemies[index].is_alive = 1;
 				index++;
 			}

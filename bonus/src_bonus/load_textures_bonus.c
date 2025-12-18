@@ -23,6 +23,11 @@ void	load_textures(t_mlx *mlx)
 			"texture/grass.xpm", &mlx->tex.width, &mlx->tex.height);
 	if (!mlx->tex.grass)
 		ft_error("Unable to find grass.xpm.\n", mlx);
+	load_hp_textures(mlx);
+	mlx->tex.game_over = mlx_xpm_file_to_image(mlx->mlx_connect,
+			"bonus/texture_bonus/gm.xpm", &mlx->tex.width, &mlx->tex.height);
+	if (!mlx->tex.game_over)
+		ft_error("Unable to find gm.xpm\n", mlx);
 }
 
 void	load_enemy(t_mlx *mlx)

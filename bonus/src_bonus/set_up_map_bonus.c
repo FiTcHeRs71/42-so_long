@@ -14,7 +14,6 @@ void	set_up_map(t_mlx *mlx)
 		y++;
 		i++;
 	}
-	render_enemy(mlx);
 	render_hud(mlx);
 }
 
