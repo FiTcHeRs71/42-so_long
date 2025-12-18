@@ -23,6 +23,7 @@ void	check_map_border_2(t_mlx *mlx);
 /* load_textures_bonus.c */
 void	load_textures(t_mlx *mlx);
 void	load_enemy(t_mlx *mlx);
+void	load_hp_textures(t_mlx *mlx);
 void	init_player(t_mlx *mlx);
 
 /* set_up_map_bonus.c */
@@ -38,6 +39,8 @@ void	player_move(t_mlx *mlx, int move);
 /* window_bonus.c */
 void	handle_window_bonus(t_mlx *mlx);
 int		handle_keyrelease(int keycode, t_mlx *mlx);
+void	render_hud(t_mlx *mlx);
+void	render_hp(t_mlx *mlx);
 
 /* exit_error_clear_bonus.c */
 void	ft_error(char *str, t_mlx *mlx);
@@ -72,5 +75,10 @@ void	*get_enemy_sprite(t_mlx *mlx, int dir);
 void	init_enemy(t_mlx *mlx);
 void	move_enemy(t_mlx *mlx, t_enemy *enemy);
 void	update_enemy(t_mlx *mlx);
+
+/* player_attack.c */
+void	kill_enemy(t_mlx *mlx, int enemy_index);
+void	check_attack_hit(t_mlx *mlx, int target_x, int target_y);
+void	player_attack(t_mlx *mlx);
 
 #endif

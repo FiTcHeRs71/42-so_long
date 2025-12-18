@@ -43,7 +43,8 @@ BONUS_SRCS  = $(addprefix $(BONUSDIR)/, \
 				window_bonus.c \
 				menu_bonus.c \
 				loader_anim_bonus.c \
-				loader_anim_utils_bonus.c)
+				loader_anim_utils_bonus.c \
+				attack_bonus.c)
 
 # ==================== OBJETS ==================== #
 OBJS        = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)

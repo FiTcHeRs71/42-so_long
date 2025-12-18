@@ -42,9 +42,7 @@ bool	can_move(t_mlx *mlx, int x, int y)
 
 	target = mlx->args[y][x];
 	if ((x < 0 || y < 0) || (!mlx->args[y] || !mlx->args[y][x]))
-	{
 		return (false);
-	}
 	if (target == '1')
 	{
 		ft_printf("Come on... you dont see the wall ?\n");
@@ -58,6 +56,12 @@ bool	can_move(t_mlx *mlx, int x, int y)
 	if (target == 'M')
 	{
 		mlx->player.hp -= 1;
+		ft_printf("charizard used fire blast, you loose 1 HP 💔\n.");
+		if (mlx->player.hp <= 0)
+		{
+			ft_printf("GAME OVER, Go at pokemon center take some times with nurse joy.\n");
+			close_window(mlx);
+		}
 		return(false);
 	}
 	return (true);
@@ -104,6 +108,8 @@ int	handle_keyboard_bonus(int keycode, t_mlx *mlx)
 			player_move(mlx, DOWN);
 		else if (keycode == XK_d || keycode == XK_Right)
 			player_move(mlx, RIGHT);
+		else if (keycode == XK_space)
+			player_attack(mlx);
 	}
 	return (0);
 }

@@ -45,6 +45,22 @@ void	load_enemy(t_mlx *mlx)
 		ft_error("Unable to find monster_R.xpm\n", mlx);
 }
 
+void	load_hp_textures(t_mlx *mlx)
+{
+	mlx->tex.hp_1 = mlx_xpm_file_to_image(mlx->mlx_connect,
+			"bonus/texture_bonus/1hp.xpm", &mlx->tex.width, &mlx->tex.height);
+	if (!mlx->tex.hp_1)
+		ft_error("Unable to find 1hp.xpm.\n", mlx);
+	mlx->tex.hp_2 = mlx_xpm_file_to_image(mlx->mlx_connect,
+			"bonus/texture_bonus/2hp.xpm", &mlx->tex.width, &mlx->tex.height);
+	if (!mlx->tex.hp_2)
+		ft_error("Unable to find 2hp.xpm.\n", mlx);
+	mlx->tex.hp_3 = mlx_xpm_file_to_image(mlx->mlx_connect,
+			"bonus/texture_bonus/3hp.xpm", &mlx->tex.width, &mlx->tex.height);
+	if (!mlx->tex.hp_3)
+		ft_error("Unable to find 3hp.xpm.\n", mlx);
+}
+
 void	init_player(t_mlx *mlx)
 {
 	int	y;

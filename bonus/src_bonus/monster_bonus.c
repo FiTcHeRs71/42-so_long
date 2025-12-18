@@ -23,7 +23,7 @@ void	update_enemy(t_mlx *mlx)
 	}
 }
 
-void	move_enemy(t_mlx *mlx, t_enemy *enemy)
+void	move_enemy(t_mlx *mlx, t_enemy *enemy) // a check avec attk
 {
 	int	new_x;
 	int	new_y;
@@ -44,7 +44,7 @@ void	move_enemy(t_mlx *mlx, t_enemy *enemy)
 			&& mlx->args[enemy->y][enemy->x - 1] == '0')
 			new_x--;
 		else
-			enemy->dir = RIGHT;
+			enemy->dir = UP;
 	}
 	else if (enemy->dir == UP)
 	{
@@ -60,7 +60,7 @@ void	move_enemy(t_mlx *mlx, t_enemy *enemy)
 			&& mlx->args[enemy->y + 1][enemy->x] == '0')
 			new_y++;
 		else
-			enemy->dir = UP;
+			enemy->dir = RIGHT;
 	}
 	if (new_x != enemy->x || new_y != enemy->y)
 	{

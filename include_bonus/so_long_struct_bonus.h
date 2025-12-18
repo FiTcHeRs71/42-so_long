@@ -59,6 +59,9 @@ typedef struct s_tex
 	void		*enemy_down;
 	void		*enemy_left;
 	void		*enemy_right;
+	void		*hp_3;
+	void		*hp_2;
+	void		*hp_1;
 	int			width;
 	int			height;
 

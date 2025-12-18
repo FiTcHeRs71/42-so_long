@@ -14,6 +14,8 @@ void	set_up_map(t_mlx *mlx)
 		y++;
 		i++;
 	}
+	render_enemy(mlx);
+	render_hud(mlx);
 }
 
 void	render_line(char *line, t_mlx *mlx, int y)
@@ -26,6 +28,7 @@ void	render_line(char *line, t_mlx *mlx, int y)
 		draw_with_img(mlx, line[x], x, y);
 		x++;
 	}
+	render_enemy(mlx);
 }
 
 void	draw_with_img(t_mlx *mlx, char c, int x, int y)

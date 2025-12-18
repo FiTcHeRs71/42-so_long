@@ -24,3 +24,34 @@ void	handle_window_bonus(t_mlx *mlx)
 	mlx_hook(mlx->mlx_window, 3, 1L << 1, handle_keyrelease, mlx);
 	mlx_hook(mlx->mlx_window, 17, 0, close_window, mlx);
 }
+
+void	render_hp(t_mlx *mlx)
+{
+	void	*hp_texture;
+	int		x;
+	int		y;
+	
+	y = 0;
+	x = mlx->window.size_x -192;
+	if (mlx->player.hp == 3)
+	{
+		hp_texture = mlx->tex.hp_3;
+	}
+	else if (mlx->player.hp == 2)
+	{
+		hp_texture = mlx->tex.hp_2;
+	}
+	else if (mlx->player.hp == 1)
+	{
+		hp_texture = mlx->tex.hp_1;
+	}
+	else
+	{
+		return ;
+	}
+		mlx_put_image_to_window(mlx->mlx_connect, mlx->mlx_window, hp_texture, x, y);
+}
+void	render_hud(t_mlx *mlx)
+{
+	render_hp(mlx);
+}
