@@ -44,6 +44,7 @@ void	ft_error(char *str, t_mlx *mlx);
 void	free_arays(char **aray);
 int		close_window(t_mlx *mlx);
 void	free_player_animations(t_mlx *mlx);
+void	free_image(t_mlx *mlx);
 
 /* loader_anim_bonus.c & utils */
 void	load_player_animations(t_mlx *mlx);

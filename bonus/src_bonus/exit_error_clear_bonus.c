@@ -28,8 +28,29 @@ void	ft_error(char *msg, t_mlx *mlx)
 	close_window(mlx);
 }
 
+void	free_image(t_mlx *mlx)
+{
+	if (mlx && mlx->mlx_connect && mlx->tex.enemy_down)
+	{
+		mlx_destroy_image(mlx->mlx_connect, mlx->tex.enemy_down);
+	}
+	if (mlx && mlx->mlx_connect && mlx->tex.enemy_right)
+	{
+		mlx_destroy_image(mlx->mlx_connect, mlx->tex.enemy_right);
+	}
+	if (mlx && mlx->mlx_connect && mlx->tex.enemy_left)
+	{
+		mlx_destroy_image(mlx->mlx_connect, mlx->tex.enemy_left);
+	}
+	if (mlx && mlx->mlx_connect && mlx->tex.enemy_up)
+	{
+		mlx_destroy_image(mlx->mlx_connect, mlx->tex.enemy_up);
+	}
+}
+
 int	close_window(t_mlx *mlx)
 {
+	free_image(mlx);
 	if (mlx->player.anim[0].frames)
 		free_player_animations(mlx);
 	if (mlx && mlx->mlx_connect && mlx->tex.eat)
