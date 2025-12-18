@@ -49,7 +49,7 @@ void	render_hp(t_mlx *mlx)
 	{
 		return ;
 	}
-		mlx_put_image_to_window(mlx->mlx_connect, mlx->mlx_window, hp_texture, x, y);
+	mlx_put_image_to_window(mlx->mlx_connect, mlx->mlx_window, hp_texture, x, y);
 }
 void	render_hud(t_mlx *mlx)
 {
