@@ -55,6 +55,11 @@ bool	can_move(t_mlx *mlx, int x, int y)
 		ft_printf("You must take all food before leave\n");
 		return (false);
 	}
+	if (target == 'M')
+	{
+		mlx->player.hp -= 1;
+		return(false);
+	}
 	return (true);
 }
 
@@ -110,6 +115,8 @@ int	game_loop(t_mlx *mlx)
 	}
 	else if (mlx->game.state == STATE_GAME)
 	{
+		update_enemy(mlx);
+		set_up_map(mlx);
 		update_player_animation(mlx);
 	}
 	return (0);

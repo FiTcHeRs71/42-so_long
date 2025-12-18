@@ -43,7 +43,7 @@ void	draw_with_img(t_mlx *mlx, char c, int x, int y)
 	else if (c == 'P')
 		texture = mlx->tex.player;
 	else if (c == 'M')
-		texture = mlx->tex.enemy_down;
+		texture = mlx->tex.grass;
 	else
 		texture = mlx->tex.grass;
 	mlx_put_image_to_window(mlx->mlx_connect, mlx->mlx_window, texture, x * 64,

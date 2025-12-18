@@ -66,4 +66,11 @@ int		find_player_position(char **map, int *x, int *y);
 void	render_menu(t_mlx *mlx);
 int		handle_menu_keys(int keycode, t_mlx *mlx);
 
+/* render_enemies.c */
+void	render_enemy(t_mlx *mlx);
+void	*get_enemy_sprite(t_mlx *mlx, int dir);
+void	init_enemy(t_mlx *mlx);
+void	move_enemy(t_mlx *mlx, t_enemy *enemy);
+void	update_enemy(t_mlx *mlx);
+
 #endif

@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 	load_enemy(&mlx);
 	load_player_animations(&mlx);
 	init_player(&mlx);
+	init_enemy(&mlx);
 	set_up_map(&mlx);
 	mlx_loop(mlx.mlx_connect);
 	return (0);

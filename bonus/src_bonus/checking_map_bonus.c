@@ -48,13 +48,17 @@ void	ft_count_and_check_args(char c, t_mlx *mlx)
 	{
 		mlx->flag_p += 1;
 	}
-	if (c == 'E')
+	else if (c == 'E')
 	{
 		mlx->flag_e += 1;
 	}
-	if (c == 'C')
+	else if (c == 'C')
 	{
 		mlx->flag_c += 1;
+	}
+	else if (c == 'M')
+	{
+		mlx->game.enemy_count += 1;
 	}
 }
 
