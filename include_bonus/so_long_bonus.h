@@ -80,5 +80,6 @@ void	update_enemy(t_mlx *mlx);
 void	kill_enemy(t_mlx *mlx, int enemy_index);
 void	check_attack_hit(t_mlx *mlx, int target_x, int target_y);
 void	player_attack(t_mlx *mlx);
+void	trigger_game_over(t_mlx *mlx);
 
 #endif

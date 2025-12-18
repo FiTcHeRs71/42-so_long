@@ -55,6 +55,7 @@ typedef struct s_tex
 	void		*esc;
 	void		*menu;
 	void		*eat;
+	void		*game_over;
 	void		*enemy_up;
 	void		*enemy_down;
 	void		*enemy_left;

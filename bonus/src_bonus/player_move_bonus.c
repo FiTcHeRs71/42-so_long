@@ -58,10 +58,7 @@ bool	can_move(t_mlx *mlx, int x, int y)
 		mlx->player.hp -= 1;
 		ft_printf("charizard used fire blast, you lose 1 HP 💔\n");
 		if (mlx->player.hp <= 0)
-		{
-			ft_printf("GAME OVER, Go at pokemon center take some times with nurse Joy.\n");
-			close_window(mlx);
-		}
+			trigger_game_over(mlx);
 		return(false);
 	}
 	return (true);

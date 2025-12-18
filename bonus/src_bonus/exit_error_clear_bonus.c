@@ -48,6 +48,8 @@ void	free_image(t_mlx *mlx)
 		mlx_destroy_image(mlx->mlx_connect, mlx->tex.hp_2);
 	if (mlx && mlx->mlx_connect && mlx->tex.hp_3)
 		mlx_destroy_image(mlx->mlx_connect, mlx->tex.hp_3);
+	if (mlx && mlx->mlx_connect && mlx->tex.game_over)
+		mlx_destroy_image(mlx->mlx_connect, mlx->tex.game_over);
 }
 
 int	close_window(t_mlx *mlx)
