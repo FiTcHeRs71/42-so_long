@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 08:43:26 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/17 08:46:28 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/18 14:47:38 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/18 14:48:32 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void	init_data(t_mlx *mlx, char **argv)
 	mlx->window.size_y = count_line(mlx->args) * 64;
 	check_map_border(mlx);
 	check_map_border_2(mlx);
-	
 }
 
 int	count_line(char **args)
@@ -114,11 +113,11 @@ void	check_map_border_2(t_mlx *mlx)
 	size_t	len;
 
 	i = 0;
-	
 	while (mlx->args[i])
 	{
 		len = ft_strlen(mlx->args[i]);
-		if ((len > 0) && (mlx->args[i][0] != '1' || mlx->args[i][len - 1] != '1'))
+		if ((len > 0) && (mlx->args[i][0] != '1'
+			|| mlx->args[i][len - 1] != '1'))
 		{
 			ft_error("The map must be surrounded by a border.\n", mlx);
 		}

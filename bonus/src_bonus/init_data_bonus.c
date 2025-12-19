@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_data_bonus.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/19 08:48:18 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 08:48:55 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include_bonus/so_long_bonus.h"
 
@@ -14,7 +25,7 @@ void	init_data(t_mlx *mlx, char **argv)
 	{
 		ft_error("Unable to open map file\n", mlx);
 	}
-	mlx->args = fill_args(fd);
+	mlx->args = fill_args(fd, mlx);
 	close(fd);
 	if (!mlx->args || !mlx->args[0])
 	{
@@ -43,7 +54,7 @@ int	count_line(char **args)
 	return (size_y);
 }
 
-char	**fill_args(int fd)
+char	**fill_args(int fd, t_mlx *mlx)
 {
 	char	*line;
 	char	*temp;
@@ -56,6 +67,8 @@ char	**fill_args(int fd)
 	line = get_next_line(fd);
 	while (line)
 	{
+		if(line[0] == '\n')
+			ft_error("Empty line in map.\n",mlx);
 		old_temp = temp;
 		temp = ft_strjoin(temp, line);
 		free(old_temp);
@@ -103,11 +116,11 @@ void	check_map_border_2(t_mlx *mlx)
 	size_t	len;
 
 	i = 0;
-	
 	while (mlx->args[i])
 	{
 		len = ft_strlen(mlx->args[i]);
-		if ((len > 0) && (mlx->args[i][0] != '1' || mlx->args[i][len - 1] != '1'))
+		if ((len > 0) && (mlx->args[i][0] != '1'
+			|| mlx->args[i][len - 1] != '1'))
 		{
 			ft_error("The map must be surrounded by a border.\n", mlx);
 		}

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   window_bonus.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/18 16:25:37 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/18 16:26:41 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include_bonus/so_long_bonus.h"
 
@@ -16,7 +27,7 @@ void	handle_window_bonus(t_mlx *mlx)
 	if (!mlx->mlx_connect)
 		ft_error("Unable to init connection\n", mlx);
 	mlx->mlx_window = mlx_new_window(mlx->mlx_connect, mlx->window.size_x,
-			mlx->window.size_y, "So_long | bonus");
+		mlx->window.size_y, "So_long | bonus");
 	if (!mlx->mlx_window)
 		ft_error("Unable to create new window\n", mlx);
 	mlx_loop_hook(mlx->mlx_connect, game_loop, mlx);
@@ -30,9 +41,9 @@ void	render_hp(t_mlx *mlx)
 	void	*hp_texture;
 	int		x;
 	int		y;
-	
+
 	y = 0;
-	x = mlx->window.size_x -192;
+	x = mlx->window.size_x - 192;
 	if (mlx->player.hp == 3)
 	{
 		hp_texture = mlx->tex.hp_3;
@@ -49,9 +60,29 @@ void	render_hp(t_mlx *mlx)
 	{
 		return ;
 	}
-	mlx_put_image_to_window(mlx->mlx_connect, mlx->mlx_window, hp_texture, x, y);
+	mlx_put_image_to_window(mlx->mlx_connect, mlx->mlx_window, hp_texture, x,
+		y);
 }
+
 void	render_hud(t_mlx *mlx)
 {
 	render_hp(mlx);
+}
+
+int	game_loop(t_mlx *mlx)
+{
+	if (mlx->game.state == STATE_MENU)
+	{
+		render_menu(mlx);
+	}
+	else if (mlx->game.state == STATE_GAME)
+	{
+		update_enemy(mlx);
+		set_up_map(mlx);
+		update_player_animation(mlx);
+	}
+	else if (mlx->game.state == STATE_GAME_OVER)
+	{
+	}
+	return (0);
 }

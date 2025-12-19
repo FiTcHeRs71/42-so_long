@@ -37,6 +37,7 @@ BONUS_SRCS  = $(addprefix $(BONUSDIR)/, \
 				load_textures_bonus.c \
 				set_up_map_bonus.c \
 				monster_bonus.c \
+				monster_utils_bonus.c \
 				exit_error_clear_bonus.c \
 				path_validation_bonus.c \
 				player_move_bonus.c \

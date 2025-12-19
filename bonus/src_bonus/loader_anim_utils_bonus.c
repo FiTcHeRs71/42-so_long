@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   loader_anim_utils_bonus.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/18 14:54:15 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/18 14:54:15 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include_bonus/so_long_bonus.h"
 
@@ -17,6 +28,7 @@ void	next_frame_cycle(t_animation *anim, int *next_frame)
 	}
 	anim->tick_counter = 0;
 }
+
 void	update_player_animation(t_mlx *mlx)
 {
 	static int	next;

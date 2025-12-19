@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   player_move_bonus.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/18 16:18:44 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/18 16:20:23 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include_bonus/so_long_bonus.h"
 
@@ -57,9 +68,10 @@ bool	can_move(t_mlx *mlx, int x, int y)
 	{
 		mlx->player.hp -= 1;
 		ft_printf("charizard used fire blast, you lose 1 HP 💔\n");
+		ft_printf("%d/%d HP.\n",mlx->player.hp, 3);
 		if (mlx->player.hp <= 0)
 			trigger_game_over(mlx);
-		return(false);
+		return (false);
 	}
 	return (true);
 }
@@ -89,7 +101,7 @@ void	player_move(t_mlx *mlx, int move)
 
 int	handle_keyboard_bonus(int keycode, t_mlx *mlx)
 {
-	if(mlx->game.state == STATE_MENU)
+	if (mlx->game.state == STATE_MENU)
 	{
 		handle_menu_keys(keycode, mlx);
 	}
@@ -108,19 +120,10 @@ int	handle_keyboard_bonus(int keycode, t_mlx *mlx)
 		else if (keycode == XK_space)
 			player_attack(mlx);
 	}
-	return (0);
-}
-int	game_loop(t_mlx *mlx)
-{
-	if (mlx->game.state == STATE_MENU)
+	else if (mlx->game.state == STATE_GAME_OVER)
 	{
-		render_menu(mlx);
-	}
-	else if (mlx->game.state == STATE_GAME)
-	{
-		update_enemy(mlx);
-		set_up_map(mlx);
-		update_player_animation(mlx);
+		if (keycode == XK_Escape)
+			close_window(mlx);
 	}
 	return (0);
 }

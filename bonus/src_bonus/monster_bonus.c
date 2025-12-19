@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   monster_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/18 15:50:57 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/18 15:50:57 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include_bonus/so_long_bonus.h"
 
@@ -6,7 +17,7 @@ void	update_enemy(t_mlx *mlx)
 	static int	frame_counter;
 	int			i;
 
-	if(frame_counter == 0)
+	if (frame_counter == 0)
 	{
 		frame_counter = 1;
 	}
@@ -23,45 +34,15 @@ void	update_enemy(t_mlx *mlx)
 	}
 }
 
-void	move_enemy(t_mlx *mlx, t_enemy *enemy) // a check avec attk
+void	move_enemy(t_mlx *mlx, t_enemy *enemy)
 {
 	int	new_x;
 	int	new_y;
 
 	new_x = enemy->x;
 	new_y = enemy->y;
-	if (enemy->dir == RIGHT)
-	{
-		if (enemy->x - enemy->start_x < enemy->patrol_range
-			&& mlx->args[enemy->y][enemy->x + 1] == '0')
-			new_x++;
-		else
-			enemy->dir = LEFT;
-	}
-	else if (enemy->dir == LEFT)
-	{
-		if (enemy->start_x - enemy->x < enemy->patrol_range
-			&& mlx->args[enemy->y][enemy->x - 1] == '0')
-			new_x--;
-		else
-			enemy->dir = RIGHT;
-	}
-	else if (enemy->dir == UP)
-	{
-		if (enemy->start_y - enemy->y < enemy->patrol_range
-			&& mlx->args[enemy->y - 1][enemy->x] == '0')
-			new_y--;
-		else
-			enemy->dir = DOWN;
-	}
-	else if (enemy->dir == DOWN)
-	{
-		if (enemy->y - enemy->start_y < enemy->patrol_range
-			&& mlx->args[enemy->y + 1][enemy->x] == '0')
-			new_y++;
-		else
-			enemy->dir = UP;
-	}
+	try_move_enemy(mlx, enemy, &new_x);
+	try_move_enemy_vertical(mlx, enemy, &new_y);
 	if (new_x != enemy->x || new_y != enemy->y)
 	{
 		mlx->args[enemy->y][enemy->x] = '0';
@@ -77,8 +58,8 @@ void	init_enemy(t_mlx *mlx)
 	int	x;
 	int	index;
 
-	if(mlx->game.enemy_count == 0)
-		return;
+	if (mlx->game.enemy_count == 0)
+		return ;
 	mlx->game.enemies = ft_calloc(mlx->game.enemy_count, sizeof(t_enemy));
 	if (!mlx->game.enemies)
 		ft_error("Unable to allocate memory\n", mlx);
@@ -87,19 +68,10 @@ void	init_enemy(t_mlx *mlx)
 	while (mlx->args[y])
 	{
 		x = 0;
-		while(mlx->args[y][x])
+		while (mlx->args[y][x])
 		{
 			if (mlx->args[y][x] == 'M')
-			{
-				mlx->game.enemies[index].x = x;
-				mlx->game.enemies[index].y = y;
-				mlx->game.enemies[index].start_x = x;
-				mlx->game.enemies[index].start_y = y;
-				mlx->game.enemies[index].dir = RIGHT;
-				mlx->game.enemies[index].patrol_range = 2;
-				mlx->game.enemies[index].is_alive = 1;
-				index++;
-			}
+				index = maj_enemy_struct(mlx, index, x, y);
 			x++;
 		}
 		y++;
@@ -132,12 +104,13 @@ void	render_enemy(t_mlx *mlx)
 	void	*sprite;
 
 	i = 0;
-	while(i < mlx->game.enemy_count)
+	while (i < mlx->game.enemy_count)
 	{
-		if(mlx->game.enemies[i].is_alive)
+		if (mlx->game.enemies[i].is_alive)
 		{
 			sprite = get_enemy_sprite(mlx, mlx->game.enemies[i].dir);
-			mlx_put_image_to_window(mlx->mlx_connect, mlx->mlx_window, sprite, mlx->game.enemies[i].x * 64, mlx->game.enemies[i].y * 64);
+			mlx_put_image_to_window(mlx->mlx_connect, mlx->mlx_window, sprite,
+				mlx->game.enemies[i].x * 64, mlx->game.enemies[i].y * 64);
 		}
 		i++;
 	}

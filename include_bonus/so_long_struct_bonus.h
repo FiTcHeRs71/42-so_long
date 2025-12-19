@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long_struct_bonus.h                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/18 14:51:14 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/18 14:51:24 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#ifndef SO_LONG_BONUS_STRUCT_H
-# define SO_LONG_BONUS_STRUCT_H
+#ifndef SO_LONG_STRUCT_BONUS_H
+# define SO_LONG_STRUCT_BONUS_H
 
 typedef enum e_state
 {
@@ -8,7 +19,7 @@ typedef enum e_state
 	STATE_GAME,
 	STATE_GAME_OVER,
 	STATE_WIN
-}	t_state;
+}				t_state;
 
 typedef enum s_move
 {
@@ -16,7 +27,7 @@ typedef enum s_move
 	RIGHT,
 	UP,
 	DOWN,
-}	t_move;
+}				t_move;
 
 typedef struct s_enemy
 {
@@ -27,17 +38,19 @@ typedef struct s_enemy
 	int			dir;
 	int			is_alive;
 	int			patrol_range;
-}	t_enemy;
+}				t_enemy;
 
-typedef struct s_animation {
+typedef struct s_animation
+{
 	void		**frames;
 	int			frame_count;
 	int			current_frame;
 	int			tick_counter;
 	int			frame_delay;
-} t_animation;
+}				t_animation;
 
-typedef struct s_player {
+typedef struct s_player
+{
 	int			x;
 	int			y;
 	t_move		direction;
@@ -45,7 +58,7 @@ typedef struct s_player {
 	int			hp;
 	int			is_attacking;
 	t_animation	anim[4];
-} t_player;
+}				t_player;
 
 typedef struct s_tex
 {
@@ -91,7 +104,7 @@ typedef struct s_game
 	int			total_food;
 	t_enemy		*enemies;
 	int			enemy_count;
-}	t_game;
+}				t_game;
 
 typedef struct s_mlx
 {
@@ -114,8 +127,5 @@ typedef struct s_flood
 	int			collectibles_found;
 	int			exit_found;
 }				t_flood;
-
-
-
 
 #endif

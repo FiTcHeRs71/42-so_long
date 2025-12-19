@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   loader_anim_bonus.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/18 14:52:10 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/18 14:52:10 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include_bonus/so_long_bonus.h"
 
@@ -35,6 +46,7 @@ char	*build_sprite_path(t_mlx *mlx, char *dir, int frame)
 		ft_error("Malloc failed.\n", mlx);
 	return (path);
 }
+
 void	init_animation(t_animation *anim)
 {
 	anim->frames = ft_calloc(3, sizeof(void *));
@@ -47,6 +59,7 @@ void	init_animation(t_animation *anim)
 	anim->frame_delay = 6;
 	anim->tick_counter = 0;
 }
+
 void	load_dir_frames(t_mlx *mlx, int move, char *dir)
 {
 	char	*path;
@@ -64,6 +77,7 @@ void	load_dir_frames(t_mlx *mlx, int move, char *dir)
 		i++;
 	}
 }
+
 void	load_player_animations(t_mlx *mlx)
 {
 	load_dir_frames(mlx, DOWN, "down");

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   attack_bonus.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/18 14:56:34 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/18 14:56:46 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include_bonus/so_long_bonus.h"
 
@@ -16,13 +27,15 @@ void	player_attack(t_mlx *mlx)
 		target_x--;
 	else if (mlx->player.direction == RIGHT)
 		target_x++;
-	if(target_x < 0 || target_y < 0 || !mlx->args[target_x] || !mlx->args[target_y])
+	if (target_x < 0 || target_y < 0 || !mlx->args[target_y]
+		|| !mlx->args[target_y][target_x])
 	{
-		return;
+		return ;
 	}
 	mlx->player.is_attacking = 1;
 	check_attack_hit(mlx, target_x, target_y);
 }
+
 void	check_attack_hit(t_mlx *mlx, int target_x, int target_y)
 {
 	int	i;
@@ -32,14 +45,15 @@ void	check_attack_hit(t_mlx *mlx, int target_x, int target_y)
 	{
 		if (mlx->game.enemies[i].is_alive && mlx->game.enemies[i].x == target_x
 			&& mlx->game.enemies[i].y == target_y)
-			{
-				kill_enemy(mlx, i);
-				return;
-			}
+		{
+			kill_enemy(mlx, i);
+			return ;
+		}
 		i++;
 	}
 	ft_printf("💨 Failed throw, maybe next time\n");
 }
+
 void	kill_enemy(t_mlx *mlx, int enemy_index)
 {
 	int	x;
@@ -52,9 +66,10 @@ void	kill_enemy(t_mlx *mlx, int enemy_index)
 	ft_printf("TUTUDUDU You are a pure dresser, you will catch'em all.\n");
 	set_up_map(mlx);
 }
+
 void	trigger_game_over(t_mlx *mlx)
 {
-ft_printf("\n");
+	ft_printf("\n");
 	ft_printf("**************************************\n");
 	ft_printf("*         💀 GAME OVER 💀            *\n");
 	ft_printf("*       You have been defeated!      *\n");
@@ -62,12 +77,12 @@ ft_printf("\n");
 	ft_printf("**************************************\n");
 	mlx->game.state = STATE_GAME_OVER;
 	mlx_destroy_window(mlx->mlx_connect, mlx->mlx_window);
-	mlx->mlx_window = mlx_new_window(mlx->mlx_connect, 1000, 1300,
-			"Game Over - So_long");
+	mlx->mlx_window = mlx_new_window(mlx->mlx_connect, 1000, 1300, "Game Over");
 	if (!mlx->mlx_window)
 		ft_error("Unable to create game over window\n", mlx);
 	mlx_hook(mlx->mlx_window, 2, 1L << 0, handle_keyboard_bonus, mlx);
 	mlx_hook(mlx->mlx_window, 17, 0, close_window, mlx);
 	mlx_clear_window(mlx->mlx_connect, mlx->mlx_window);
-	mlx_put_image_to_window(mlx->mlx_connect, mlx->mlx_window, mlx->tex.game_over, 0, 0);
+	mlx_put_image_to_window(mlx->mlx_connect, mlx->mlx_window,
+		mlx->tex.game_over, 0, 0);
 }

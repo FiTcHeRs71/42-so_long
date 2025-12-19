@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/17 11:02:30 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/17 11:02:30 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/18 14:45:55 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/18 15:01:11 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	init_player(t_mlx *mlx);
 
 /* checking_map.c */
 void	check_map(t_mlx *mlx, char **args);
-void	check_arg(char	*line, t_mlx *mlx);
+void	check_arg(char *line, t_mlx *mlx);
 void	ft_count_and_check_args(char c, t_mlx *mlx);
 void	check_flag(t_mlx *mlx);
 
@@ -53,7 +53,7 @@ int		find_player_position(char **map, int *x, int *y);
 /* exit_error_clear.c */
 void	ft_error(char *msg, t_mlx *mlx);
 void	clean_struct(t_mlx *mlx);
-void	free_arays(char	**aray);
+void	free_arays(char **aray);
 int		close_window(t_mlx *mlx);
 
 /* player_move.c */

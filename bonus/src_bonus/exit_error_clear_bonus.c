@@ -1,24 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   exit_error_clear_bonus.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/18 14:59:31 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/18 15:00:52 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../include_bonus/so_long_bonus.h"
 
-void	free_arays(char **aray)
+void	clean_struct(t_mlx *mlx)
 {
 	size_t	i;
 
 	i = 0;
-	while (aray[i])
-	{
-		free(aray[i]);
-		i++;
-	}
-	free(aray);
-}
-
-void	clean_struct(t_mlx *mlx)
-{
 	if (mlx && mlx->args)
 	{
-		free_arays(mlx->args);
+		while (mlx->args[i])
+		{
+			free(mlx->args[i]);
+			i++;
+		}
+		free(mlx->args);
 	}
 	if (mlx && mlx->game.enemies)
 	{
@@ -77,6 +83,7 @@ int	close_window(t_mlx *mlx)
 	clean_struct(mlx);
 	exit(EXIT_SUCCESS);
 }
+
 void	free_player_animations(t_mlx *mlx)
 {
 	int	dir;
@@ -86,16 +93,17 @@ void	free_player_animations(t_mlx *mlx)
 	while (dir < 4)
 	{
 		i = 0;
-		while ( i < 3)
+		while (i < 3)
 		{
-			if(mlx->player.anim[dir].frames[i])
+			if (mlx->player.anim[dir].frames[i])
 			{
-				mlx_destroy_image(mlx->mlx_connect, mlx->player.anim[dir].frames[i]);
+				mlx_destroy_image(mlx->mlx_connect,
+					mlx->player.anim[dir].frames[i]);
 			}
 			mlx->player.anim[dir].frames[i] = NULL;
 			i++;
 		}
-		if(mlx->player.anim[dir].frames)
+		if (mlx->player.anim[dir].frames)
 		{
 			free(mlx->player.anim[dir].frames);
 			mlx->player.anim[dir].frames = NULL;

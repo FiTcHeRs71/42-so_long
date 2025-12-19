@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/19 08:43:04 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 08:43:04 by fducrot          ###   ########.ch       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
@@ -15,7 +26,7 @@ void	ft_count_and_check_args(char c, t_mlx *mlx);
 
 /* init_data_bonus.c */
 void	init_data(t_mlx *mlx, char **argv);
-char	**fill_args(int fd);
+char	**fill_args(int fd, t_mlx *mlx);
 int		count_line(char **args);
 void	check_map_border(t_mlx *mlx);
 void	check_map_border_2(t_mlx *mlx);
@@ -44,7 +55,6 @@ void	render_hp(t_mlx *mlx);
 
 /* exit_error_clear_bonus.c */
 void	ft_error(char *str, t_mlx *mlx);
-void	free_arays(char **aray);
 int		close_window(t_mlx *mlx);
 void	free_player_animations(t_mlx *mlx);
 void	free_image(t_mlx *mlx);
@@ -69,12 +79,15 @@ int		find_player_position(char **map, int *x, int *y);
 void	render_menu(t_mlx *mlx);
 int		handle_menu_keys(int keycode, t_mlx *mlx);
 
-/* render_enemies.c */
+/* monster_bonus & utils  */
 void	render_enemy(t_mlx *mlx);
 void	*get_enemy_sprite(t_mlx *mlx, int dir);
 void	init_enemy(t_mlx *mlx);
 void	move_enemy(t_mlx *mlx, t_enemy *enemy);
 void	update_enemy(t_mlx *mlx);
+int		maj_enemy_struct(t_mlx *mlx, int index, int x, int y);
+void	try_move_enemy_vertical(t_mlx *mlx, t_enemy *enemy, int *new_y);
+void	try_move_enemy(t_mlx *mlx, t_enemy *enemy, int *new_x);
 
 /* player_attack.c */
 void	kill_enemy(t_mlx *mlx, int enemy_index);
