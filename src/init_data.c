@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 11:05:51 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/19 11:06:10 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/19 11:11:01 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 11:11:01 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	**fill_args(t_mlx *mlx, int fd)
 	line = get_next_line(fd);
 	while (line)
 	{
-		if(line[0] == '\n')
+		if (line[0] == '\n')
 			ft_error("Empty line in the map.\n", mlx);
 		old_temp = temp;
 		temp = ft_strjoin(temp, line);

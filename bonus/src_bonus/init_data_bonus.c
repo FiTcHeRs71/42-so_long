@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 11:04:56 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/19 11:05:41 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/19 11:13:12 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 11:13:12 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	init_data(t_mlx *mlx, char **argv)
 	{
 		ft_error("The map must be not empty.", mlx);
 	}
-	check_map(mlx, mlx->args); 
+	check_map(mlx, mlx->args);
 	mlx->window.size_x = (ft_strlen(mlx->args[0])) * 64;
 	mlx->window.size_y = count_line(mlx->args) * 64;
 	check_map_border(mlx);
@@ -67,7 +67,7 @@ char	**fill_args(t_mlx *mlx, int fd)
 	line = get_next_line(fd);
 	while (line)
 	{
-		if(line[0] == '\n')
+		if (line[0] == '\n')
 			ft_error("Empty line in the map.\n", mlx);
 		old_temp = temp;
 		temp = ft_strjoin(temp, line);

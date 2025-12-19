@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 09:15:37 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/19 09:16:01 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/19 11:12:29 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 11:12:29 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ bool	can_move(t_mlx *mlx, int x, int y)
 	{
 		mlx->player.hp -= 1;
 		ft_printf("charizard used fire blast, you lose 1 HP 💔\n");
-		ft_printf("%d/%d HP.\n",mlx->player.hp, 3);
+		ft_printf("%d/%d HP.\n", mlx->player.hp, 3);
 		if (mlx->player.hp <= 0)
 			trigger_game_over(mlx);
 		return (false);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/18 16:25:37 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/18 16:26:41 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/19 11:12:51 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 11:12:51 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	handle_window_bonus(t_mlx *mlx)
 	if (!mlx->mlx_connect)
 		ft_error("Unable to init connection\n", mlx);
 	mlx->mlx_window = mlx_new_window(mlx->mlx_connect, mlx->window.size_x,
-		mlx->window.size_y, "So_long | bonus");
+			mlx->window.size_y, "So_long | bonus");
 	if (!mlx->mlx_window)
 		ft_error("Unable to create new window\n", mlx);
 	mlx_loop_hook(mlx->mlx_connect, game_loop, mlx);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 09:57:48 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/19 09:57:48 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/19 11:11:16 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 11:11:16 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,6 @@ void	check_arg(char *line, t_mlx *mlx)
 		if (!ft_strchr("10EPC", line[i]))
 		{
 			ft_error("Missing parameters.\n", mlx);
-		}
-		if(ft_strncmp(line, "\n\n", ft_strlen(line)))
-		{
-			ft_error("Empty line in the map.\n", mlx);
 		}
 		ft_count_and_check_args(line[i], mlx);
 		i++;
