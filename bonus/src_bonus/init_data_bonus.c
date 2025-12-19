@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 08:48:18 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/19 08:48:55 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/19 11:04:56 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 11:05:41 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ void	init_data(t_mlx *mlx, char **argv)
 	{
 		ft_error("Unable to open map file\n", mlx);
 	}
-	mlx->args = fill_args(fd, mlx);
+	mlx->args = fill_args(mlx, fd);
 	close(fd);
 	if (!mlx->args || !mlx->args[0])
 	{
 		ft_error("The map must be not empty.", mlx);
 	}
-	check_map(mlx, mlx->args);
+	check_map(mlx, mlx->args); 
 	mlx->window.size_x = (ft_strlen(mlx->args[0])) * 64;
 	mlx->window.size_y = count_line(mlx->args) * 64;
 	check_map_border(mlx);
@@ -54,7 +54,7 @@ int	count_line(char **args)
 	return (size_y);
 }
 
-char	**fill_args(int fd, t_mlx *mlx)
+char	**fill_args(t_mlx *mlx, int fd)
 {
 	char	*line;
 	char	*temp;
@@ -68,7 +68,7 @@ char	**fill_args(int fd, t_mlx *mlx)
 	while (line)
 	{
 		if(line[0] == '\n')
-			ft_error("Empty line in map.\n",mlx);
+			ft_error("Empty line in the map.\n", mlx);
 		old_temp = temp;
 		temp = ft_strjoin(temp, line);
 		free(old_temp);

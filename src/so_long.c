@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/16 19:07:14 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/16 19:07:19 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/19 09:48:58 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 09:48:58 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(int argc, char **argv)
 {
 	t_mlx		mlx;
-	t_game		game;
 
 	if (argc != 2)
 	{
@@ -24,7 +23,6 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	ft_memset(&mlx, 0, sizeof(mlx));
-	ft_memset(&game, 0, sizeof(game));
 	init_data(&mlx, argv);
 	handle_window(&mlx);
 	load_textures(&mlx);

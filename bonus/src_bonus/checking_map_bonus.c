@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/18 14:49:53 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/18 14:49:53 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/19 10:32:24 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 10:32:24 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	check_arg(char *line, t_mlx *mlx)
 		}
 		if (!ft_strchr("10EPCM", line[i]))
 		{
-			ft_error("Missing parameters.\n", mlx);
+			ft_error("Invalid parameters.\n", mlx);
 		}
 		ft_count_and_check_args(line[i], mlx);
 		i++;

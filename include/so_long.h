@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/18 14:45:55 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/18 15:01:11 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/19 11:06:24 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 11:06:24 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		handle_keyboard_input(int keycode, t_mlx *mlx);
 /* init_data.c */
 void	init_data(t_mlx *mlx, char **argv);
 int		count_line(char **args);
-char	**fill_args(int fd);
+char	**fill_args(t_mlx *mlx, int fd);
 void	check_map_border_2(t_mlx *mlx);
 void	check_map_border(t_mlx *mlx);
 

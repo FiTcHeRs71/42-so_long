@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 08:43:04 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/19 08:43:04 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/19 10:33:47 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 10:33:47 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_count_and_check_args(char c, t_mlx *mlx);
 
 /* init_data_bonus.c */
 void	init_data(t_mlx *mlx, char **argv);
-char	**fill_args(int fd, t_mlx *mlx);
+char	**fill_args(t_mlx *mlx, int fd);
 int		count_line(char **args);
 void	check_map_border(t_mlx *mlx);
 void	check_map_border_2(t_mlx *mlx);

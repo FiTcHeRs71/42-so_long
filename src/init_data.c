@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/18 14:47:38 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/18 14:48:32 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/19 11:05:51 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 11:06:10 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	init_data(t_mlx *mlx, char **argv)
 	{
 		ft_error("Unable to open map file\n", mlx);
 	}
-	mlx->args = fill_args(fd);
+	mlx->args = fill_args(mlx, fd);
 	close(fd);
 	if (!mlx->args || !mlx->args[0])
 	{
@@ -53,7 +53,7 @@ int	count_line(char **args)
 	return (size_y);
 }
 
-char	**fill_args(int fd)
+char	**fill_args(t_mlx *mlx, int fd)
 {
 	char	*line;
 	char	*temp;
@@ -66,6 +66,8 @@ char	**fill_args(int fd)
 	line = get_next_line(fd);
 	while (line)
 	{
+		if(line[0] == '\n')
+			ft_error("Empty line in the map.\n", mlx);
 		old_temp = temp;
 		temp = ft_strjoin(temp, line);
 		free(old_temp);
