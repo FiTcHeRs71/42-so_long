@@ -29,7 +29,7 @@ SRCS        = $(addprefix $(SRCDIR)/, \
 				set_up_map.c \
 				window.c)
 
-# Sources Partie Bonus (Tout est indépendant)
+# Sources Partie Bonus
 BONUS_SRCS  = $(addprefix $(BONUSDIR)/, \
 				so_long_bonus.c \
 				checking_map_bonus.c \
