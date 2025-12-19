@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 11:11:01 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/19 11:11:01 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/19 12:15:52 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 13:25:06 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	init_data(t_mlx *mlx, char **argv)
 {
 	int	fd;
 
-	if (ft_strnstr(argv[1], ".ber", ft_strlen(argv[1])) == NULL)
+	if (ft_strncmp(&argv[1][ft_strlen(argv[1] + 4)], ".ber", 4))
 	{
-		ft_error("map has to be .ber\n", mlx);
+		ft_error("File map has to be .ber\n", mlx);
 	}
 	fd = open(argv[1], O_RDONLY);
 	if (fd < 0)
@@ -66,8 +66,6 @@ char	**fill_args(t_mlx *mlx, int fd)
 	line = get_next_line(fd);
 	while (line)
 	{
-		if (line[0] == '\n')
-			ft_error("Empty line in the map.\n", mlx);
 		old_temp = temp;
 		temp = ft_strjoin(temp, line);
 		free(old_temp);
@@ -76,6 +74,7 @@ char	**fill_args(t_mlx *mlx, int fd)
 			return (NULL);
 		line = get_next_line(fd);
 	}
+	check_line_empty(mlx, temp, fd);
 	args = ft_split(temp, '\n');
 	free(temp);
 	return (args);

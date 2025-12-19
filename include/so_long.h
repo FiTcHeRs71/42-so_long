@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 11:06:24 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/19 11:06:24 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/19 11:57:53 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 11:58:06 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	check_map(t_mlx *mlx, char **args);
 void	check_arg(char *line, t_mlx *mlx);
 void	ft_count_and_check_args(char c, t_mlx *mlx);
 void	check_flag(t_mlx *mlx);
+void	check_line_empty(t_mlx	*mlx, char *line, int fd);
 
 /* path_validdation.c */
 void	valide_path(t_mlx *mlx);

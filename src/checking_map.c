@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fducrot <fducrot@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/19 11:11:16 by fducrot           #+#    #+#             */
-/*   Updated: 2025/12/19 11:11:16 by fducrot          ###   ########.ch       */
+/*   Created: 2025/12/19 13:28:49 by fducrot           #+#    #+#             */
+/*   Updated: 2025/12/19 13:28:53 by fducrot          ###   ########.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,25 @@ void	check_flag(t_mlx *mlx)
 	if (mlx->flag_p != 1)
 	{
 		ft_error("Need only one player.\n", mlx);
+	}
+}
+
+void	check_line_empty(t_mlx	*mlx, char *line, int fd)
+{
+	size_t	i;
+
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] == '\n' && line[i + 1] == '\n')
+		{
+			if (fd > 0)
+			{
+				close (fd);
+			}
+			free (line);
+			ft_error("Empty line in map.", mlx);
+		}
+		i++;
 	}
 }
