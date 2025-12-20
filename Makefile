@@ -60,7 +60,7 @@ INCLUDES_B  = -I$(BONUS_INCDIR) -I$(LIBFT_DIR)/include -I$(MLX_DIR)
 
 LDFLAGS     = -L$(LIBFT_DIR) -L$(MLX_DIR) -lft -lmlx -lXext -lX11 -lm
 
-# ==================== COULEURS (Juste pour le style) ==================== #
+# ==================== COULEURS ==================== #
 GREEN       = \033[0;32m
 CYAN        = \033[0;36m
 YELLOW      = \033[0;33m
