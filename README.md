@@ -1,9 +1,7 @@
 # So_long - A 2D Pokémon-Themed Game 🎮
-# So_long - Un Jeu 2D sur le Thème Pokémon 🎮
 
-![Game Preview](Screenshot_from_2025-12-20_14-03-40.png)
+---<img width="1602" height="988" alt="Screenshot from 2025-12-20 14-03-40" src="https://github.com/user-attachments/assets/5d54a294-6e10-4a7b-b585-dda87d4a6f7a" />
 
----
 
 ## 🌍 Language / Langue
 
